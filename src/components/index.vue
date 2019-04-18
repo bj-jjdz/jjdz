@@ -2,16 +2,67 @@
   <div class="index">
     <!-- 轮播图 -->
     <template>
-      <el-carousel :interval="5000" arrow="never" indicator-position="outside">
+      <el-carousel :interval="5000" arrow="never" indicator-position="outside" height="25rem">
         <el-carousel-item v-for="item in banner" :key="item">
           <img :src="item.idView" alt="">
         </el-carousel-item>
       </el-carousel>
     </template>
+    <!-- 企业互联网+一站式服务 -->
+    <el-row>
+      <el-col :span="24" class="site">
+        <p class="title">
+          企业互联网+一站式服务
+        </p>
+      </el-col>
+    </el-row>
+      <div class="Digitization-div">
+        <!-- 营销数字化 -->
+        <div class="Digitization">
+          <img src="../assets/img/yzt.png">
+          <div>
+            <p>营销数字化</p>
+            <a href="javascript:;">
+              <p>网站建设：PC+移动端</p>
+            </a>
+            <a href="javascript:;">
+             <p>多行业应用</p>
+            </a>
+            <a href="javascript:;">
+              <p>线上营销工具</p>
+            </a>
+          </div>
+        </div>
+        <!-- 交易数字化 -->
+        <div class="Digitization2">
+          <img src="../assets/img/wjj.png">
+          <div>
+            <p>交易数字化</p>
+            <a href="javascript:;">
+              <p>电商平台</p>
+            </a>
+            <a href="javascript:;">
+              <p>交易扩展应用</p>
+            </a>
+          </div>
+        </div>
+        <!-- 客户管理数字化 -->
+        <div class="Digitization">
+          <img src="../assets/img/ccg.png">
+          <div>
+            <p>客户管理数字化</p>
+            <a href="javascript:;">
+              <p>精准会员智能营销</p>
+            </a>
+          </div>
+        </div>
+    </div>
     <!-- 企业行业建站分类 -->
     <el-row>
       <el-col :span="24" class="site">
-        企业行业建站分类
+        <p class="title">
+          企业行业建站分类
+        </p>
       </el-col>
     </el-row>
     <el-row type="flex" class="row-bg" justify="center">
@@ -66,69 +117,15 @@
         </el-card>
       </el-col>
     </el-row>
-    <!-- 行业解决方案 -->
-    <el-row>
-      <el-col :span="24" class="site">
-        行业解决方案
-      </el-col>
-    </el-row>
-    <el-row style="margin-top:2rem;">
-      <el-col :span="13" :offset="5">
-        <el-container>
-          <!-- 左边aside -->
-          <el-aside width="200px">
-            <el-row style="border:5px solid #666">
-              <el-col :span="15">
-                <el-button type="text">教育解决方案</el-button>
-              </el-col>
-              <el-col :span="15">
-                <el-button type="text">教育解决方案</el-button>
-              </el-col>
-              <el-col :span="15">
-                <el-button type="text">教育解决方案</el-button>
-              </el-col>
-              <el-col :span="15">
-                <el-button type="text">教育解决方案</el-button>
-              </el-col>
-            </el-row>
-          </el-aside>
-          <el-container>
-            <!-- 中间头部 -->
-            <el-header>新金融解决方案</el-header>
-            <!-- 中间主体 -->
-            <el-main>
-              <el-row>
-                <el-col :span="20">
-                  通过一系列云基础设施服务，帮助您创建、实施和分发全球数字媒体内容。具有较高的可扩展性和安全性，在云中为各种类型的视音频或数字内容提供海量存储容量，提供高效分发内容的低成本解决方案。
-                </el-col>
-                <el-col :span="5">
-                  <el-button type="danger" plain style="margin-top:2rem;">了解更多</el-button>
-                </el-col>
-              </el-row>
-            </el-main>
-            <!-- 中间底部 -->
-            <el-footer>
-              <el-row>
-                <el-col :span="6">
-                  <el-button type="danger">售后服务</el-button>
-                </el-col>
-                <el-col :span="6">
-                  <el-button type="danger">相关案例</el-button>
-                </el-col>
-                <el-col :span="6">
-                  <el-button type="danger">网站安全</el-button>
-                </el-col>
-              </el-row>
-            </el-footer>
-          </el-container>
-        </el-container>
-      </el-col>
-    </el-row>
     <!-- 品牌企业案例 -->
     <el-row>
       <el-col :span="24" class="site">
-        品牌企业案例
+        <p class="title">
+          品牌企业案例
+        </p>
       </el-col>
+    </el-row>
+    <el-row>
       <el-col :span="23">
         <div class="pp_log">
           <img src="../assets/img/logo.png" alt="">
@@ -147,7 +144,9 @@
     <!-- 最新资讯 -->
     <el-row>
       <el-col :span="24" class="site">
-        最新资讯
+        <p class="title">
+          最新资讯
+        </p>
       </el-col>
     </el-row>
   </div>
@@ -175,10 +174,10 @@ export default {
 <style scoped>
 /* site(行业建站分类) */
 .site {
-  font-weight: 900;
-  margin-top: 1rem;
-  color:#666;
-  font-size:20px;
+  margin: 50px 0;
+  color:#333;
+  font-size:24px;
+  margin-bottom: 0px;
 }
   .clearfix:before,
   .clearfix:after {
@@ -201,48 +200,14 @@ export default {
     padding-top: 2rem;
     margin-bottom: 3rem;
   }
-  /* 行业解决方案 */
-    .el-header, .el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: left;
-    margin-left: 2rem;
-    line-height: 60px;
-    font-weight: 900;
-  }
-
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 100px;
-  }
-
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: left;
-    margin-top: 2rem;
-    margin-left: 2rem;
-  }
-
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
 </style>
 
 <style>
   .index {
-    background-color:#e9e9e9;
+    background-color:#fff;
+    font-family: 'Microsoft Yahei',PingFangSC,sans-serif;
+    color:#333;
+    min-width: 1250px;
   }
   .index .el-card {
     background-color:#fff;
@@ -270,6 +235,101 @@ export default {
   }
   .index .pp_log img:hover{
     border:1px solid #000;
-    background-color:rgba(0, 0, 0, 0)
+    background-color:rgba(0, 0, 0, 0);
+  }
+  .index .el-carousel img{
+    width:100%;
+  }
+  /* 企业互联网头部图标 */
+  .title:before{
+    content:  "";
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  .title::before{
+    width: 0;
+    height: 0;
+    bottom: -19px;
+    border:6px solid;
+    border-color:#20B09F transparent transparent;
+  }
+  .title:after{
+    content:  "";
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  .title::after{
+    width: 52px;
+    height: 3px;
+    background-color: #20B09F;
+    bottom: -8px;
+  }
+  .index .text[data-v-47323bf2]{
+    text-align: left;
+  }
+  .index .Digitization, .index .Digitization2{
+    border: 1px solid #EDEDED;
+    display: flex;
+    height: 166px;
+    padding: 40px 0 0;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .index .Digitization2{
+    background-color:#F7F8FA;
+  }
+  .index .Digitization a, .index .Digitization2 a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: #666;
+    margin: 12px 0;
+    background-repeat: no-repeat;
+  }
+  .index .Digitization img, .index .Digitization2 img{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .index .Digitization a>p, .index .Digitization2 a>p{
+    text-decoration: none;
+    background-image: url("../assets/img/img-items-service-mark.svg");
+    background-repeat: no-repeat;
+    padding-left: 18px;
+    line-height: 14px;
+    margin-right:1rem;
+    padding-right: 2rem;
+  }
+  /* Digitization-div */
+  .index .Digitization-div{
+    margin-top:3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .index .Digitization2:before, .index .Digitization2:after{
+    position: relative;
+    top:50%;
+    transform:translateY(-50%);
+    width: 0;
+    height: 0;
+    content: "";
+    z-index: 1;
+    left: -1%;
+  }
+  .index .Digitization2::before{
+    right: -20px;
+    border:11px solid;
+    border-color: transparent transparent transparent #fff;
+  }
+  .index .Digitization2::after{
+    left: 23px;
+    right: -22px;
+    border:11px solid;
+    border-color: transparent transparent transparent #EDEDED;
   }
 </style>

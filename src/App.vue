@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <!-- 头 -->
-    <el-row style="background-color:#e0e0e0">
-      <el-col :span="2" style="background-color:#e0e0e0">
+    <el-row style="background-color:#31363a">
+      <el-col :span="2" style="background-color:#31363a">
         <div class="line"></div>
-          <img src="./assets/img/logo.png" alt="" style="height:55px;width:140px;background-color:#e0e0e0">
+          <img src="./assets/img/logo.png" alt="" style="height:55px;width:140px;background-color:#31363a">
       </el-col>
       <el-col :span="20">
         <el-menu
@@ -12,10 +12,10 @@
           class="el-menu-demo"
           mode="horizontal"
           @select="handleSelect"
-          background-color="#e0e0e0"
-          text-color="#000"
-          active-text-color="#008cd4"
-          active-background-color="#e0e0e0"
+          background-color="#31363a"
+          text-color="#fff"
+          active-text-color="#20B09F"
+          active-background-color="#31363a"
         >
           <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
@@ -51,10 +51,30 @@
           </el-submenu>
           <el-submenu index="3">
             <template slot="title">案例</template>
-            <el-menu-item index="3-1">制造业</el-menu-item>
-            <el-menu-item index="3-2">服务业</el-menu-item>
-            <el-menu-item index="3-3">餐饮业</el-menu-item>
-            <el-menu-item index="3-4">装饰业</el-menu-item>
+            <div style="height:10rem;">
+            <el-scrollbar style="height:100%">
+              <el-menu-item index="3-1">机械行业</el-menu-item>
+              <el-menu-item index="3-2">装修行业</el-menu-item>
+              <el-menu-item index="3-3">培训行业</el-menu-item>
+              <el-menu-item index="3-4">酒店民俗</el-menu-item>
+              <el-menu-item index="3-5">食品加工</el-menu-item>
+              <el-menu-item index="3-6">家具制造</el-menu-item>
+              <el-menu-item index="3-7">服装鞋帽</el-menu-item>
+              <el-menu-item index="3-8">电线电缆</el-menu-item>
+              <el-menu-item index="3-9">化工行业</el-menu-item>
+              <el-menu-item index="3-10">纺织行业</el-menu-item>
+              <el-menu-item index="3-11">电子电工</el-menu-item>
+              <el-menu-item index="3-12">五金配件</el-menu-item>
+              <el-menu-item index="3-13">电力电器</el-menu-item>
+              <el-menu-item index="3-14">IT数码</el-menu-item>
+              <el-menu-item index="3-15">装饰建材</el-menu-item>
+              <el-menu-item index="3-16">汽配行业</el-menu-item>
+              <el-menu-item index="3-17">餐饮加盟</el-menu-item>
+              <el-menu-item index="3-18">家居行业</el-menu-item>
+              <el-menu-item index="3-19">仪表仪器</el-menu-item>
+              <el-menu-item index="3-20">新农业</el-menu-item>
+            </el-scrollbar>
+          </div>
           </el-submenu>
           <el-submenu index="4">
             <template slot="title">解决方案</template>
@@ -65,8 +85,33 @@
           </el-submenu>
           <el-submenu index="5">
             <template slot="title">关于我们</template>
-            <el-menu-item index="5-1">企业概况</el-menu-item>
-            <el-menu-item index="5-2">新闻中心</el-menu-item>
+            <el-menu-item index="5-1">
+              <el-submenu index="5-1">
+                <template slot="title">企业概况</template>
+                <el-menu-item index="5-1-1">关于我们</el-menu-item>
+                <el-menu-item index="5-1-2">企业文化</el-menu-item>
+                <el-menu-item index="5-1-3">发展历程</el-menu-item>
+                <el-menu-item index="5-1-4">法律隐私</el-menu-item>
+              </el-submenu>
+            </el-menu-item>
+            <el-menu-item index="5-2">
+              <el-submenu index="5-2">
+                <template slot="title">新闻中心</template>
+                <el-menu-item index="5-2-1">新闻公告</el-menu-item>
+                <el-menu-item index="5-2-2">媒体报道</el-menu-item>
+                <el-menu-item index="5-2-3">社会公益</el-menu-item>
+                <el-menu-item index="5-2-4">视频中心</el-menu-item>
+              </el-submenu>
+            </el-menu-item>
+            <el-menu-item index="5-3">
+              <el-submenu index="5-3">
+                <template slot="title">联系我们</template>
+                <el-menu-item index="5-3-1">联系我们</el-menu-item>
+                <el-menu-item index="5-3-2">全国网点</el-menu-item>
+                <el-menu-item index="5-3-3">工作机会</el-menu-item>
+                <el-menu-item index="5-3-4">中国数码</el-menu-item>
+              </el-submenu>
+            </el-menu-item>
           </el-submenu>
           <el-menu-item index="6">联系我们</el-menu-item>
         </el-menu>
@@ -113,7 +158,7 @@
             </a>
           </el-col>
           <el-col :span="24" class="foot_left_center_bottom">
-            版权所有 © 1999-2019 中企动力科技股份有限公司 Copyright © 1999-2018 300.cn All Rights Reserved京公网安备11030102010293号京ICP证010249-2
+            版权所有 © 1999-2019 九江东注有限公司 Copyright © 1999-2018 xxx.cn All Rights Reserved京公网安备11030102010293号京ICP证xxxxx-x
           </el-col>
         </el-row>
       </el-col>
@@ -157,6 +202,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.el-menu.el-menu--horizontal{
+  border:0px;
+}
 /* 底部 */
 .footer{
   margin-top:2rem;
@@ -189,6 +237,7 @@ export default {
 .foot_left_center a{
   text-decoration: none;
   color:#fff;
+  transition:.5s;
 }
 .foot_left_center a:hover{
   color:#0ff;
@@ -201,4 +250,5 @@ export default {
 .foot_right__leftText{
   font-size:16px;
 }
+.el-scrollbar__wrap { overflow-x: hidden; }
 </style>

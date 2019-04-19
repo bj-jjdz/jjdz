@@ -117,6 +117,79 @@
         </el-card>
       </el-col>
     </el-row>
+    <!-- 行业解决方案 -->
+    <el-row>
+      <el-col :span="24" class="site">
+        <p class="title">
+          行业解决方案
+        </p>
+      </el-col>
+    </el-row>
+    <el-row style="margin-top:2rem;" class="site_two">
+      <el-col :span="16" :offset="5">
+        <el-container>
+          <!-- 左边aside -->
+          <el-aside width="270px">
+            <el-row style="margin-top:1rem;margin-bottom:1rem;">
+              <el-col :span="18">
+                <el-button class="dz-btn" plain>
+                <img src="../assets/img/hangye_2.png">
+                  教育解决方案
+                </el-button>
+              </el-col>
+              <el-col :span="18">
+                <el-button class="dz-btn" plain>
+                  <img src="../assets/img/hangye_2.png">
+                  教育解决方案
+                </el-button>
+              </el-col>
+              <el-col :span="18">
+                <el-button class="dz-btn" plain>
+                  <img src="../assets/img/hangye_2.png">
+                  教育解决方案
+                </el-button>
+              </el-col>
+              <el-col :span="18">
+                <el-button class="dz-btn" plain>
+                  <img src="../assets/img/hangye_2.png">
+                  教育解决方案
+                </el-button>
+              </el-col>
+            </el-row>
+          </el-aside>
+          <!-- 中间 -->
+          <el-container>
+            <!-- 中间头部 -->
+            <el-header>新金融解决方案</el-header>
+            <!-- 中间主体 -->
+            <el-main>
+              <el-row>
+                <el-col :span="23" class="site_two_contenr_text">
+                  通过一系列云基础设施服务，帮助您创建、实施和分发全球数字媒体内容。具有较高的可扩展性和安全性，在云中为各种类型的视音频或数字内容提供海量存储容量，提供高效分发内容的低成本解决方案。
+                </el-col>
+                <el-col :span="5">
+                  <el-button class="dz-btn-lj" plain>了解更多</el-button>
+                </el-col>
+              </el-row>
+            </el-main>
+            <!-- 中间底部 -->
+            <el-footer>
+              <el-row>
+                <el-col :span="6">
+                  <el-button class="dz-btn-lj_d">售后服务</el-button>
+                </el-col>
+                <el-col :span="6">
+                  <el-button class="dz-btn-lj_d">相关案例</el-button>
+                </el-col>
+                <el-col :span="6">
+                  <el-button class="dz-btn-lj_d">网站安全</el-button>
+                </el-col>
+              </el-row>
+            </el-footer>
+          </el-container>
+        </el-container>
+      </el-col>
+    </el-row>
     <!-- 品牌企业案例 -->
     <el-row>
       <el-col :span="24" class="site">
@@ -313,7 +386,7 @@ export default {
 
   .index .Digitization2:before, .index .Digitization2:after{
     position: relative;
-    top:50%;
+    top:40%;
     transform:translateY(-50%);
     width: 0;
     height: 0;
@@ -331,5 +404,102 @@ export default {
     right: -22px;
     border:11px solid;
     border-color: transparent transparent transparent #EDEDED;
+  }
+/* 行业解决方案 */
+  .site_two{
+    background-color:rgba(255, 255, 255, 0.4);
+  }
+    .el-header, .el-footer {
+    /* background-color: #B3C0D1; */
+    color: #333;
+    text-align: left;
+    margin-left: 2rem;
+    line-height: 60px;
+    font-weight: 900;
+  }
+
+  .el-aside {
+    /* background-color: #D3DCE6; */
+    color: #333;
+    text-align: center;
+    line-height: 100px;
+  }
+
+  .el-main {
+    /* background-color: #E9EEF3; */
+    color: #333;
+    text-align: left;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+  }
+  /* button */
+  .index .dz-btn{
+    padding: 45px 56px;
+    border-bottom: 2px dashed #3e6f9f;
+    transition:.5s;
+    color: rgba(67, 67, 67, 1);
+    font-family: "Microsoft YaHei";
+    font-size:18px;
+    font-weight: normal;
+    background: transparent;
+  }
+  .index .dz-btn img{
+    width:27px;
+    height: auto;
+    visibility: visible;
+  }
+  .index .dz-btn:hover{
+    background-color:#20b09f;
+    border-color:#20b09f;
+    color:#fff;
+  }
+  .index .dz-btn:focus{
+    background-color:#20b09f;
+    border-color:#20b09f;
+    color:#fff;
+  }
+  /* btn-了解更多 */
+  .index .dz-btn-lj{
+    margin-top: 3rem;
+    border: 2px solid #20b09f;
+    color: #20b09f;
+    border-radius: 0%;
+    transition:.5s;
+  }
+  .index .dz-btn-lj:hover{
+    background:#20b09f;
+    color:#fff;
+    border-color:#20b09f;
+  }
+  .index .dz-btn-lj:focus{
+    background:#20b09f;
+    color:#fff;
+    border-color:#20b09f;
+  }
+  /* 文字 */
+  /* .el-header文字 */
+  .index .el-header{
+    font-size: 24px;
+    font-family: "微软雅黑";
+    color: rgb(102, 102, 102);
+  }
+  /* site_two_contenr_text */
+  .index .site_two_contenr_text{
+    color:rgb(153, 153, 153);
+    font-family: "微软雅黑";
+    font-size:14px;
   }
 </style>

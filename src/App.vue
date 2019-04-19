@@ -17,7 +17,7 @@
           active-text-color="#20B09F"
           active-background-color="#31363a"
         >
-          <el-menu-item index="1">首页</el-menu-item>
+          <el-menu-item index="1"><router-link to='/'>首页</router-link></el-menu-item>
           <el-submenu index="2">
             <template slot="title">产品</template>
             <el-menu-item index="2-1">
@@ -57,7 +57,7 @@
               <el-menu-item index="3-2">装修行业</el-menu-item>
               <el-menu-item index="3-3">培训行业</el-menu-item>
               <el-menu-item index="3-4">酒店民俗</el-menu-item>
-              <el-menu-item index="3-5">食品加工</el-menu-item>
+              <el-menu-item index="3-5"><router-link to='/casefood'>食品加工</router-link></el-menu-item>
               <el-menu-item index="3-6">家具制造</el-menu-item>
               <el-menu-item index="3-7">服装鞋帽</el-menu-item>
               <el-menu-item index="3-8">电线电缆</el-menu-item>
@@ -69,7 +69,7 @@
               <el-menu-item index="3-14">IT数码</el-menu-item>
               <el-menu-item index="3-15">装饰建材</el-menu-item>
               <el-menu-item index="3-16">汽配行业</el-menu-item>
-              <el-menu-item index="3-17">餐饮加盟</el-menu-item>
+              <el-menu-item index="3-17"><router-link to='/catering'>餐饮加盟</router-link></el-menu-item>
               <el-menu-item index="3-18">家居行业</el-menu-item>
               <el-menu-item index="3-19">仪表仪器</el-menu-item>
               <el-menu-item index="3-20">新农业</el-menu-item>
@@ -251,4 +251,6 @@ export default {
   font-size:16px;
 }
 .el-scrollbar__wrap { overflow-x: hidden; }
+a {text-decoration: none;color:#fff;}
+.router-link-active {text-decoration: none;}
 </style>

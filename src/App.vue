@@ -113,7 +113,7 @@
               </el-submenu>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item index="6">联系我们</el-menu-item>
+          <el-menu-item index="6"><router-link to='/backstage'>联系我们</router-link></el-menu-item>
         </el-menu>
       </el-col>
     </el-row>

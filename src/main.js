@@ -6,12 +6,16 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'babel-polyfill'
+import axios from 'axios'
+import commonHttp from '@/assets/js/common.js'
 // import moment from 'moment'
 // import VueRouter from 'vue-router';
 
 Vue.config.productionTip = false
 
+Vue.use(commonHttp)
 Vue.use(ElementUI)
+Vue.prototype.$axios = axios
 
 /* eslint-disable no-new */
 new Vue({

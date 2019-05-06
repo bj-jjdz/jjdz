@@ -1,21 +1,20 @@
 <template>
-  <div id="app">
+  <div  style="'transform': transformScale,'width': width;height:100%;" id="app">
     <!-- 头 -->
-    <el-row style="background-color:#31363a">
-      <el-col :span="2" style="background-color:#31363a">
-        <div class="line"></div>
-          <img src="./assets/img/logo.png" alt="" style="height:55px;width:140px;background-color:#31363a">
+    <el-row class="title_nav" type="flex" align="middle">
+      <el-col :span="2" :offset="2">
+        <img src="./assets/img/logo.png" class="logo">
       </el-col>
-      <el-col :span="20">
+      <el-col :span="13" :offset="1">
         <el-menu
           :default-active="activeIndex2"
           class="el-menu-demo"
           mode="horizontal"
           @select="handleSelect"
-          background-color="#31363a"
+          background-color="#333333"
           text-color="#fff"
-          active-text-color="#20B09F"
-          active-background-color="#31363a"
+          active-text-color="#ff0000"
+          active-background-color="#333"
         >
           <el-menu-item index="1"><router-link to='/'>首页</router-link></el-menu-item>
           <el-submenu index="2">
@@ -113,65 +112,114 @@
               </el-submenu>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item index="6"><router-link to='/backstage'>联系我们</router-link></el-menu-item>
+          <el-menu-item index="6"><router-link to='/backstage' class="dd1">联系我们</router-link></el-menu-item>
         </el-menu>
+      </el-col>
+      <!-- 登陆注册 -->
+      <el-col :span="2" class="title_nav_zj" :offset="1">
+        <div class="login_up">
+          <router-link to='/loginUp' class="login_up_img">登陆</router-link>
+        </div>
+        <div class="login_in">
+          <router-link to='/signUp' class="login_in_img">注册</router-link>
+        </div>
       </el-col>
     </el-row>
     <router-view/>
     <!-- footer -->
     <el-row class="footer">
-      <!-- foot-left -->
-      <el-col :span="6">
+      <!-- foot-1-公司产品 -->
+      <el-col :span="3" :offset="3">
         <el-row>
-          <el-col :span="4" :offset="15">
-            <i class="el-icon-phone"></i>
+          <el-col :span="24" class="footer_title">
+            公司产品
           </el-col>
-          <el-col :span="5" style="margin-top:0.6rem;text-align:left;">
-            售前资讯<p>xxx-xxx-xxx</p>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">网站建设</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">SEO优化推广</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">微信小程序定制开发</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">App定制开发</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">域名注册服务</a>
           </el-col>
         </el-row>
       </el-col>
-      <!-- foot-conten -->
-      <el-col :span="9" :offset="2" class="foot_left_center">
+      <!-- foot-2-关于我们 -->
+      <el-col :span="3" :offset="1">
         <el-row>
-          <el-col :span="24" class="foot_left_center_top">
-            <a href="javascript:;">
-              联系我们
-            </a><span>|</span>
-            <a href="javascript:;">
-              意见反馈
-            </a><span>|</span>
-            <a href="javascript:;">
-              全国网点
-            </a><span>|</span>
-            <a href="javascript:;">
-              友情链接
-            </a><span>|</span>
-            <a href="javascript:;">
-              推荐
-            </a><span>|</span>
-            <a href="javascript:;">
-              邮箱登陆
-            </a><span>|</span>
-            <a href="javascript:;">
-              English
-            </a>
+          <el-col :span="24" class="footer_title">
+            关于我们
           </el-col>
-          <el-col :span="24" class="foot_left_center_bottom">
-            版权所有 © 1999-2019 九江东注有限公司 Copyright © 1999-2018 xxx.cn All Rights Reserved京公网安备11030102010293号京ICP证xxxxx-x
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">了解九江东注</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">客户案例</a>
           </el-col>
         </el-row>
       </el-col>
-      <!-- foot-right -->
-      <el-col :span="3">
+      <!-- foot-3-售后服务 -->
+      <el-col :span="3" :offset="1">
         <el-row>
-          <el-col :span="24">
-            <i class="el-icon-mobile-phone"></i>&nbsp;
-            <!-- <img src="./assets/img/vx.png" class="foot_right_Wx"> -->
+          <el-col :span="24" class="footer_title">
+            售后服务
           </el-col>
-          <el-col :span="24" class="foot_right__leftText">
-            <span>移动版</span>&nbsp;&nbsp;&nbsp;
-            <!-- <span>微 信</span> -->
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">7*27小时售后服务热线</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">一对一业务支持服务</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">全年免修限次维修服务</a>
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">定制化至满意为止</a>
+          </el-col>
+        </el-row>
+      </el-col>
+      <!-- foot-4-友情链接 -->
+      <el-col :span="3" :offset="1">
+        <el-row>
+          <el-col :span="24" class="footer_title">
+            友情链接
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">九江东注官网</a>
+          </el-col>
+        </el-row>
+      </el-col>
+      <!-- foot-5-联系我们 -->
+      <el-col :span="3" :offset="1">
+        <el-row>
+          <el-col :span="24" class="footer_title">
+            联系我们
+          </el-col>
+          <el-col :span="24" class="footer_p-item">
+            <a href="javascript:;">意见反馈</a>
+          </el-col>
+        </el-row>
+      </el-col>
+      <!-- 分割线 -->
+      <el-col :span="24" :offset="3">
+        <el-row>
+          <el-col :span="18">
+            <hr class="footer_hr">
+          </el-col>
+        </el-row>
+      </el-col>
+      <!-- 九江东注 -->
+      <el-col :span="24" :offset="3">
+        <el-row>
+          <el-col :span="18" class="jiujiangdongzhu-com">
+            © 2018-2019 jiujiangdongzhu.com 版权所有：
           </el-col>
         </el-row>
       </el-col>
@@ -188,7 +236,20 @@ export default {
       activeIndex2: '1'
     }
   },
+  mounted () {
+    this.autoSetScale() // 进页面先执行一次页面高度和宽度计算然后赋值
+    window.addEventListener('resize', () => {
+      this.autoSetScale()
+    }, false)
+  },
   methods: {
+    autoSetScale () {
+      let zoom = (window.innerHeight / 800).toFixed(3)
+      this.transformScale = `scale(${zoom})`
+      this.width = `${(window.innerWidth / zoom).toFixed(2)}px`
+      console.log('屏幕尺寸', this.width)
+    },
+    handleSelect () {}
   }
 }
 </script>
@@ -201,54 +262,142 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  float: 0;
+  margin: 0;
+  height: 100%!important;
+  overflow-x:hidden;
 }
 .el-menu.el-menu--horizontal{
   border:0px;
 }
+/* 导航条 */
+.title_nav{
+  background:#333333;
+  width: 100%;
+  height:6.375rem;
+  vertical-align: bottom;
+}
+.title_nav .el-submenu__title, .title_nav .el-menu-item{
+  font-size: 1rem !important;
+}
+.title_nav .el-submenu__title:hover, .title_nav .el-menu-item:hover{
+  color: #ff0000 !important;
+  background: rgb(51, 51, 51) !important;
+}
+.title_nav .el-menu--horizontal>.el-menu-item{
+  border-bottom:0px;
+}
+.title_nav .el-menu--horizontal>.el-submenu .el-submenu__title{
+  border-bottom:0px;
+}
+.title_nav .el-menu--horizontal>.el-submenu.is-active .el-submenu__title{
+  border-bottom: 0px;
+}
+.title_nav .el-menu--horizontal>.el-menu-item.is-active{
+  border-bottom: 0px;
+}
+.title_nav_zj{
+  display: inline-block;
+  color:#fff;
+}
+.title_nav_zj div{
+  display: inline-block;
+  line-height: 6.375rem;
+}
+.logo{
+  width:11.375rem;
+  height:3.6875rem;
+}
+/* 登陆、注册 */
+.title_nav .login_in{
+  margin-left: 2.5rem;
+}
+.title_nav .login_up, .title_nav .login_in{
+  font-size: .875rem;
+  font-family: PingFang-SC-Medium;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  position: relative;
+}
+.title_nav .login_up_img:hover, .title_nav .login_in_img:hover{
+  color: #ff0000;
+}
+/* 登陆图标 */
+.title_nav .login_up_img:after{
+  content: '';
+  position: absolute;
+  right: 2.5rem;
+  top: 39%;
+}
+.title_nav .login_up_img::after{
+  width: 22px;
+  height: 22px;
+  background-image: url('./assets/img/index-icon/login.png');
+}
+.title_nav .login_up_img:hover::after{
+  background-image: url('./assets/img/index-icon/login-h.png');
+}
+/* 注册图标 */
+.title_nav .login_in_img:after{
+  content: '';
+  position: absolute;
+  right: 2.4rem;
+  top: 39%;
+}
+.title_nav .login_in_img::after{
+  width: 22px;
+  height: 22px;
+  background-image: url('./assets/img/index-icon/signUp.png');
+}
+.title_nav .login_in_img:hover::after{
+  background-image: url('./assets/img/index-icon/signUp-h.png');
+}
 /* 底部 */
 .footer{
-  margin-top:2rem;
-  padding:3rem;
-  background-color:rgba(0, 0, 0, 0.8);
-  color:#fff;
+    width: 100%;
+    height:29.25rem;
+    padding:3rem;
+    background-color:rgba(0, 0, 0, 0.8);
+    color:#fff;
+    text-align: left;
 }
- .foot_right_Wx{
-  padding:0.6rem;
-  border:1px solid #fff;
-  border-radius: 50%;
-  font-size:12px;
+.footer .footer_title{
+    font-family: PingFang-SC-Medium;
+    font-size: 1rem;;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-bottom: 1rem;
 }
-.el-icon-mobile-phone{
-  padding:1rem;
-  border:1px solid #fff;
-  border-radius: 50%;
-  font-size:22px;
+.footer .footer_p-item{
+    font-family: PingFang-SC-Medium;
+    font-size: .75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ececec;
+    margin-top:1rem;
 }
-.el-icon-phone{
-  padding:1rem;
-  border:1px solid #fff;
-  border-radius: 50%;
-  font-size:32px;
+.footer .footer_p-item a:hover{
+  transition: .5s;
+  color:#ff0000;
 }
-.foot_left_center{
-  border-left:1px solid #fff;
-  border-right:1px solid #fff;
+.footer .footer_hr{
+  height: .0625rem;
+  background-color:#e6e6e6;
+  opacity: 0.15;
+  margin-top: 4rem;
+  border: none;
 }
-.foot_left_center a{
-  text-decoration: none;
-  color:#fff;
-  transition:.5s;
-}
-.foot_left_center a:hover{
-  color:#0ff;
-}
-.foot_left_center_bottom{
-  font-size:12px;
-  color:#c6c6c6;
-  margin-top:1rem;
-}
-.foot_right__leftText{
-  font-size:16px;
+.footer .jiujiangdongzhu-com{
+    font-family: PingFang-SC-Medium;
+    font-size: .75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #999999;
 }
 .el-scrollbar__wrap { overflow-x: hidden; }
 a {text-decoration: none;color:#fff;}

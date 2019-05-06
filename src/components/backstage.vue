@@ -29,7 +29,15 @@ export default {
       }, {
         id: 4,
         // icon: 'el-icon-menu',
-        label: '投诉反馈'
+        label: '客户需求'
+      }, {
+        id: 5,
+        // icon: 'el-icon-menu',
+        label: '案例图片修改'
+      }, {
+        id: 6,
+        // icon: 'el-icon-menu',
+        label: '测试'
       }],
       defaultProps: {
         children: 'children',
@@ -50,6 +58,10 @@ export default {
         this.$router.push('/backstage/backstageOpinion')
       } else if (type === 4) {
         this.$router.push('/backstage/backstageComplaint')
+      } else if (type === 5) {
+        this.$router.push('/backstage/backstageCase')
+      } else if (type === 6) {
+        this.$router.push('/backstage/test')
       }
     }
   }
@@ -60,8 +72,7 @@ export default {
 .backStage{
   width: 100%;
   min-height: calc(100% - 14rem);
-  overflow-x: hidden;
-  height:670px;
+  height: 43.97rem;
 }
 .tree-icon {
   display: inline-block;

@@ -6,6 +6,11 @@ import backstageBanner from '@/components/backstage/Backstage-banner'
 import backstageComplaint from '@/components/backstage/Backstage-complaint'
 import backstageNews from '@/components/backstage/Backstage-news'
 import backstageOpinion from '@/components/backstage/Backstage-opinion'
+import backstageCase from '@/components/backstage/Backstage-case'
+import backstageTest from '@/components/backstage/test'
+import loginUp from '@/components/login/loginUp'
+import signUp from '@/components/login/signUp'
+// import test from '@/components/backstage/test'
 
 Vue.use(Router)
 
@@ -41,8 +46,28 @@ export default new Router({
           path: '/backstage/backstageOpinion',
           name: 'backstageOpinion',
           component: backstageOpinion
+        },
+        {
+          path: '/backstage/backstageCase',
+          name: 'backstageCase',
+          component: backstageCase
+        },
+        {
+          path: '/backstage/test',
+          name: 'backstageTest',
+          component: backstageTest
         }
       ]
+    },
+    {
+      path: '/loginUp',
+      name: 'loginUp',
+      component: loginUp
+    },
+    {
+      path: '/signUp',
+      name: 'signUp',
+      component: signUp
     }
   ]
 })

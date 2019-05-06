@@ -1,30 +1,29 @@
 <template>
-  <div>
+  <div class="opinion">
     <!-- 查询 -->
-    <el-row :gutter="10" type="flex" justify="space-between">
-      <el-col class="block" :span= "6">
-            <el-date-picker
-              v-model="value2"
-              type="daterange"
-              align="right"
-              unlink-panels
-              range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-              :picker-options="pickerOptions">
-            </el-date-picker>
-      </el-col>
-      <el-col :span="3">
-        <el-input v-model="input" placeholder="请输入用户"></el-input>
-      </el-col>
-      <el-col :span="2">
-        <el-button type="primary"
-            @click="getData(1)">查询</el-button>
-      </el-col>
-    </el-row>
+    <div class="opinionTop">
+        <div class="timeSearch">
+          <span style="margin-right:20px">请选择日期</span>
+          <el-date-picker
+            :clearable=false
+            v-model="timeValue"
+            type="daterange"
+            align="right"
+            value-format='yyyy-MM-dd'
+            placeholder="选择日期范围"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            :picker-options="pickerOptions">
+          </el-date-picker>
+        </div>
+        <div class="fuzzySearch"><el-input placeholder="请输入关键字" v-model="fuzzySearchText" clearable>
+          </el-input><el-button icon="el-icon-search" @click="getData(1)">搜索</el-button>
+        </div>
+    </div>
     <!-- 表格 -->
     <el-table
-      :data="tableData5"
+      :data="tableData"
       style="width: 100%;margin-top:2rem;"
       max-height="600">
       <el-table-column type="expand">
@@ -34,37 +33,30 @@
               <span>{{ props.row.name }}</span>
             </el-form-item>
             <el-form-item label="联系方式">
-              <span>{{ props.row.shop }}</span>
+              <span>{{ props.row.phone }}</span>
             </el-form-item>
-            <el-form-item label="描述">
-              <span>{{ props.row.id }}</span>
-            </el-form-item>
-            <el-form-item label="店铺 ID">
-              <span>{{ props.row.shopId }}</span>
-            </el-form-item>
-            <el-form-item label="商品分类">
-              <span>{{ props.row.category }}</span>
-            </el-form-item>
-            <el-form-item label="店铺地址">
-              <span>{{ props.row.address }}</span>
-            </el-form-item>
-            <el-form-item label="商品描述">
-              <span>{{ props.row.desc }}</span>
+            <el-form-item label="" style="width:100%">
+              <span style="color:#99a9bf;font-size:14px;margin-right:2rem;">描述</span>
+              <span>{{ props.row.feedback }}</span>
             </el-form-item>
           </el-form>
         </template>
       </el-table-column>
       <el-table-column
-        label="用户 ID"
-        prop="id">
+        label="联系方式"
+        prop="phone">
       </el-table-column>
       <el-table-column
-        label="联系方式"
+        label="用户邮箱"
+        prop="email">
+      </el-table-column>
+      <el-table-column
+        label="用户名字"
         prop="name">
       </el-table-column>
       <el-table-column
         label="描述"
-        prop="desc"
+        prop="feedback"
         fit="false">
       </el-table-column>
     </el-table>
@@ -72,15 +64,35 @@
     <el-pagination
       background
       layout="prev, pager, next"
-      :total="20">
+      :page-count="tot"
+      :current-page="currentPage"
+      @size-change="handleSizeChange"
+      @current-change="listCurr"
+      :prev-click="prev"
+      :next-click="next"
+      >
     </el-pagination>
   </div>
 </template>
 <script>
+import qs from 'qs'
+
 export default {
   data () {
     return {
+      // 总页数
+      totalPage: '',
+      // 总条数
+      totalCount: 0,
+      currentPage: 1,
+      prevDis: true,
       nextDis: false,
+      formLabelWidth: '120px',
+      dialogFormVisible: false,
+      start_time: '',
+      end_time: '',
+      timeValue: '',
+      fuzzySearchText: '',
       pageNum: '',
       input: '',
       pickerOptions: {
@@ -106,69 +118,82 @@ export default {
         ]
       },
       value2: '',
-      tableData5: [
-        {
-          id: '12987122',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        },
-        {
-          id: '12987123',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        },
-        {
-          id: '12987125',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        },
-        {
-          id: '12987126',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }],
-      prevDis: true
+      tableData: []
     }
   },
   methods: {
-    getData (page) {
-      alert('查询成功')
+    // 分页
+    handleSizeChange (val) {
+      const that = this
+      that.pageLimit = val
+      that.getData(val)
     },
-    // 分页查询
-    prev: function () {
-      if (this.page > 1) {
-        this.page = --this.page
-        this.getData(this.page)
+    listCurr (val) {
+      this.getData(val)
+      // debugger
+      // this.getData(this.currentPage)
+    },
+    next: function () {
+      if (this.tableData.length === this.res.data.data) {
+        this.currentPage = ++this.currentPage
+        this.getData(this.currentPage)
       }
     },
-    onSubmit: function () {
-      this.jump()
+    prev: function () {
+      if (this.currentPage > 1) {
+        this.currentPage = --this.currentPage
+        this.getData(this.currentPage)
+      }
     },
-    jump: function () {
-      this.page = this.pageNum
-      this.getData(this.page)
+    getData (currentPage) {
+      var that = this
+      if (this.currentPage === null || this.currentPage === undefined || this.currentPage === '') {
+        currentPage = 1
+      }
+      let data = {
+        phone: this.fuzzySearchText,
+        start_time: this.timeValue[0],
+        end_time: this.timeValue[1],
+        page: currentPage
+      }
+      that.$axios.post(this.httpUrlMK + '/jiujiangdongzhu/Suggest/ProposalList', qs.stringify(data)).then(res => {
+        if (res.data.code === '200') {
+          this.tableData = res.data.data
+          this.totalCount = res.data.count
+          this.tot = res.data.tot
+        } else {
+          this.tableData = res.data.data
+          this.totalCount = res.data.count
+          this.$message({
+            message: '查询失败（没有数据）',
+            type: 'error'
+          })
+        }
+      })
     }
+  },
+  mounted () {
+    this.getData(1)
+    this.h = window.screen.availHeight - 320
   }
 }
 </script>
 
 <style>
+  .opinion{
+    padding:1.25rem;;
+  }
+  .opinionTop{
+    display: flex;
+    justify-content: space-between;
+  }
+  .opinionTop .fuzzySearch{
+    display: flex;
+    justify-content: space-between;
+  }
+  .timeSearch{
+    display: inline-block;
+  }
   .block{
     text-align: left;
   }
@@ -187,5 +212,10 @@ export default {
   .miaoshu{
     width:2rem!important;
     overflow-y: hidden;
+  }
+  .opinion .el-table .cell{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
   }
 </style>

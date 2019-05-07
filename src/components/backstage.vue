@@ -34,10 +34,6 @@ export default {
         id: 5,
         // icon: 'el-icon-menu',
         label: '案例图片修改'
-      }, {
-        id: 6,
-        // icon: 'el-icon-menu',
-        label: '测试'
       }],
       defaultProps: {
         children: 'children',
@@ -60,8 +56,6 @@ export default {
         this.$router.push('/backstage/backstageComplaint')
       } else if (type === 5) {
         this.$router.push('/backstage/backstageCase')
-      } else if (type === 6) {
-        this.$router.push('/backstage/test')
       }
     }
   }

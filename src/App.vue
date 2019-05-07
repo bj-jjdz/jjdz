@@ -19,98 +19,130 @@
           <el-menu-item index="1"><router-link to='/'>首页</router-link></el-menu-item>
           <el-submenu index="2">
             <template slot="title">产品</template>
-            <el-menu-item index="2-1">
-              <el-submenu index="2-1">
-                <template slot="title">网站建设</template>
-                <el-menu-item index="2-1-1">品牌管网建设</el-menu-item>
-                <el-menu-item index="2-1-2">集团站群建设</el-menu-item>
-                <el-menu-item index="2-1-3">行业门户网站建设</el-menu-item>
-                <el-menu-item index="2-1-4">社区门户网站建设</el-menu-item>
-                <el-menu-item index="2-1-5">网站定制</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
-            <el-menu-item index="2-2">
-              <el-submenu index="2-2">
-                <template slot="title">移动端开发</template>
-                <el-menu-item index="2-2-1">手机网站建设</el-menu-item>
-                <el-menu-item index="2-2-2">微网站</el-menu-item>
-                <el-menu-item index="2-2-3">小程序开发</el-menu-item>
-                <el-menu-item index="2-2-4">App开发</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
-            <el-menu-item index="2-3">
-              <el-submenu index="2-3">
-                <template slot="title">电商网站开发</template>
-                <el-menu-item index="2-3-1">B2B网站建设</el-menu-item>
-                <el-menu-item index="2-3-2">B2C网站建设</el-menu-item>
-                <el-menu-item index="2-3-3">为上策建设</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
-            <el-menu-item index="2-4">SEO优化</el-menu-item>
+              <el-card class="box-card">
+                <el-row>
+                  <el-col :span="2" :offset="7">
+                    <el-row>
+                      <el-col :span="24" class="titleOne">网站建设</el-col>
+                      <el-col :span="24" class="itemOne">响应式展示门户</el-col>
+                      <el-col :span="24" class="itemOne">全网响应式门户</el-col>
+                      <el-col :span="24" class="itemOne">集团站群</el-col>
+                      <el-col :span="24" class="itemOne">电商门户</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col class="FGXfff"></el-col>
+                  <el-col :span="3" class="CPnth2">
+                    <el-row>
+                      <el-col :span="20" class="titleOne">SEO优化推广</el-col>
+                      <el-col :span="24" class="titleTwo">微信小程序定制开发</el-col>
+                      <el-col :span="24" class="titleTwo">APP定时开发</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col class="FGXfff"></el-col>
+                  <el-col :span="2" :offset="0" class="CPnth3">
+                    <el-row>
+                      <el-col :span="24" class="titleOne">域名注册</el-col>
+                      <el-col :span="24" class="titleTwo">
+                        虚拟主机
+                      </el-col>
+                      <el-col :span="24" class="titleTwo">
+                        企业邮箱
+                      </el-col>
+                    </el-row>
+                  </el-col>
+                </el-row>
+              </el-card>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title">案例</template>
-            <div style="height:10rem;">
-            <el-scrollbar style="height:100%">
-              <el-menu-item index="3-1">机械行业</el-menu-item>
-              <el-menu-item index="3-2">装修行业</el-menu-item>
-              <el-menu-item index="3-3">培训行业</el-menu-item>
-              <el-menu-item index="3-4">酒店民俗</el-menu-item>
-              <el-menu-item index="3-5"><router-link to='/casefood'>食品加工</router-link></el-menu-item>
-              <el-menu-item index="3-6">家具制造</el-menu-item>
-              <el-menu-item index="3-7">服装鞋帽</el-menu-item>
-              <el-menu-item index="3-8">电线电缆</el-menu-item>
-              <el-menu-item index="3-9">化工行业</el-menu-item>
-              <el-menu-item index="3-10">纺织行业</el-menu-item>
-              <el-menu-item index="3-11">电子电工</el-menu-item>
-              <el-menu-item index="3-12">五金配件</el-menu-item>
-              <el-menu-item index="3-13">电力电器</el-menu-item>
-              <el-menu-item index="3-14">IT数码</el-menu-item>
-              <el-menu-item index="3-15">装饰建材</el-menu-item>
-              <el-menu-item index="3-16">汽配行业</el-menu-item>
-              <el-menu-item index="3-17"><router-link to='/catering'>餐饮加盟</router-link></el-menu-item>
-              <el-menu-item index="3-18">家居行业</el-menu-item>
-              <el-menu-item index="3-19">仪表仪器</el-menu-item>
-              <el-menu-item index="3-20">新农业</el-menu-item>
-            </el-scrollbar>
-          </div>
+              <el-card class="box-card">
+                <el-row>
+                  <el-col :span="2" :offset="7">
+                    <el-row>
+                      <el-col :span="24" class="itemOne">机械行业</el-col>
+                      <el-col :span="24" class="itemOne">装修行业</el-col>
+                      <el-col :span="24" class="itemOne">培训行业</el-col>
+                      <el-col :span="24" class="itemOne">酒店民俗</el-col>
+                      <el-col :span="24" class="itemOne">IT数码</el-col>
+                      <el-col :span="24" class="itemOne">装饰建材</el-col>
+                      <el-col :span="24" class="itemOne">汽配行业</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="3" :offset="1">
+                    <el-row>
+                      <el-col :span="20" class="itemOne">食品加工</el-col>
+                      <el-col :span="24" class="itemOne">家具制造</el-col>
+                      <el-col :span="24" class="itemOne">服装鞋帽</el-col>
+                      <el-col :span="24" class="itemOne">五金配件</el-col>
+                      <el-col :span="24" class="itemOne">餐饮加盟</el-col>
+                      <el-col :span="24" class="itemOne">家居行业</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="2">
+                    <el-row>
+                      <el-col :span="24" class="itemOne">电线电缆</el-col>
+                      <el-col :span="24" class="itemOne">化工行业</el-col>
+                      <el-col :span="24" class="itemOne">纺织行业</el-col>
+                      <el-col :span="24" class="itemOne">新农业</el-col>
+                      <el-col :span="24" class="itemOne">电力电器</el-col>
+                      <el-col :span="24" class="itemOne">仪表仪器</el-col>
+                    </el-row>
+                  </el-col>
+                </el-row>
+              </el-card>
           </el-submenu>
           <el-submenu index="4">
             <template slot="title">解决方案</template>
-            <el-menu-item index="4-1">电商行业</el-menu-item>
-            <el-menu-item index="4-2">制造业</el-menu-item>
-            <el-menu-item index="4-3">餐饮业</el-menu-item>
-            <el-menu-item index="4-4">装饰业</el-menu-item>
+              <el-card class="box-card">
+                <el-row>
+                  <el-col :span="2" :offset="9">
+                    <el-row>
+                      <el-col :span="24" class="itemOne">电商行业</el-col>
+                      <el-col :span="24" class="itemOne">制造业</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="3" :offset="1">
+                    <el-row>
+                      <el-col :span="20" class="itemOne">餐饮业</el-col>
+                      <el-col :span="24" class="itemOne">装饰业</el-col>
+                    </el-row>
+                  </el-col>
+                </el-row>
+              </el-card>
           </el-submenu>
           <el-submenu index="5">
             <template slot="title">关于我们</template>
-            <el-menu-item index="5-1">
-              <el-submenu index="5-1">
-                <template slot="title">企业概况</template>
-                <el-menu-item index="5-1-1">关于我们</el-menu-item>
-                <el-menu-item index="5-1-2">企业文化</el-menu-item>
-                <el-menu-item index="5-1-3">发展历程</el-menu-item>
-                <el-menu-item index="5-1-4">法律隐私</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
-            <el-menu-item index="5-2">
-              <el-submenu index="5-2">
-                <template slot="title">新闻中心</template>
-                <el-menu-item index="5-2-1">新闻公告</el-menu-item>
-                <el-menu-item index="5-2-2">媒体报道</el-menu-item>
-                <el-menu-item index="5-2-3">社会公益</el-menu-item>
-                <el-menu-item index="5-2-4">视频中心</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
-            <el-menu-item index="5-3">
-              <el-submenu index="5-3">
-                <template slot="title">联系我们</template>
-                <el-menu-item index="5-3-1">联系我们</el-menu-item>
-                <el-menu-item index="5-3-2">全国网点</el-menu-item>
-                <el-menu-item index="5-3-3">工作机会</el-menu-item>
-                <el-menu-item index="5-3-4">中国数码</el-menu-item>
-              </el-submenu>
-            </el-menu-item>
+              <el-card class="box-card">
+                <el-row>
+                  <el-col :span="2" :offset="9">
+                    <el-row>
+                      <el-col :span="24" class="titleOne">企业概况</el-col>
+                      <el-col :span="24" class="itemOne">关于我们</el-col>
+                      <el-col :span="24" class="itemOne">企业文化</el-col>
+                      <el-col :span="24" class="itemOne">发展历程</el-col>
+                      <el-col :span="24" class="itemOne">法律隐私</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="3" :offset="1">
+                    <el-row>
+                      <el-col :span="24" class="titleOne">新闻中心</el-col>
+                      <el-col :span="24" class="itemOne">新闻公告</el-col>
+                      <el-col :span="24" class="itemOne">媒体报道</el-col>
+                      <el-col :span="24" class="itemOne">社会公益</el-col>
+                      <el-col :span="24" class="itemOne">视频中心</el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="3">
+                    <el-row>
+                      <el-col :span="24" class="titleOne">联系我们</el-col>
+                      <el-col :span="24" class="itemOne">联系我们</el-col>
+                      <el-col :span="24" class="itemOne">全国网点</el-col>
+                      <el-col :span="24" class="itemOne">工作机会</el-col>
+                      <el-col :span="24" class="itemOne">中国数码</el-col>
+                    </el-row>
+                  </el-col>
+                </el-row>
+              </el-card>
           </el-submenu>
           <el-menu-item index="6"><router-link to='/backstage' class="dd1">联系我们</router-link></el-menu-item>
         </el-menu>
@@ -121,7 +153,7 @@
           <router-link to='/loginUp' class="login_up_img">登陆</router-link>
         </div>
         <div class="login_in">
-          <router-link to='/signUp' class="login_in_img">注册</router-link>
+          <router-link to="/register" class="login_in_img">注册</router-link>
         </div>
       </el-col>
     </el-row>
@@ -271,6 +303,41 @@ export default {
   border:0px;
 }
 /* 导航条 */
+.el-card{
+  border:0rem;
+  background-color:#000;
+  border-radius: 0px;
+  width:120rem;
+  height:25rem;
+  color:#ffffff;
+  font-family: PingFang-SC-Medium;
+  font-size:.875rem;;
+}
+.el-card .titleOne{
+  font-size: 1.25rem;
+  margin-top:2rem;
+  margin-bottom: 2rem;
+}
+.el-card .titleTwo{
+  font-size: 1.25rem;;
+  margin-bottom: 2rem;
+}
+.el-card .itemOne{
+  line-height: 2.5rem;
+}
+.el-card .FGXfff{
+  width:1px;
+  height:329px;
+  background-color:#fff;
+  margin-top:1rem;
+}
+.el-card .CPnth2{
+  margin-left:3rem;
+  margin-right:1rem;
+}
+.el-card .CPnth3{
+  margin-left:3rem;
+}
 .title_nav{
   background:#333333;
   width: 100%;

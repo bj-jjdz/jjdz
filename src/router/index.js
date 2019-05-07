@@ -7,9 +7,12 @@ import backstageComplaint from '@/components/backstage/Backstage-complaint'
 import backstageNews from '@/components/backstage/Backstage-news'
 import backstageOpinion from '@/components/backstage/Backstage-opinion'
 import backstageCase from '@/components/backstage/Backstage-case'
-import backstageTest from '@/components/backstage/test'
-import loginUp from '@/components/login/loginUp'
-import signUp from '@/components/login/signUp'
+import loginUp from '@/components/offcial/login/loginUp'
+import register from '@/components/offcial/login/register'
+import forgetPassword from '@/components/forget-password'
+import stepOne from '@/components/offcial/forget-password/step-one'
+import stepTwo from '@/components/offcial/forget-password/step-two'
+import stepThree from '@/components/offcial/forget-password/step-three'
 // import test from '@/components/backstage/test'
 
 Vue.use(Router)
@@ -51,11 +54,6 @@ export default new Router({
           path: '/backstage/backstageCase',
           name: 'backstageCase',
           component: backstageCase
-        },
-        {
-          path: '/backstage/test',
-          name: 'backstageTest',
-          component: backstageTest
         }
       ]
     },
@@ -65,9 +63,32 @@ export default new Router({
       component: loginUp
     },
     {
-      path: '/signUp',
-      name: 'signUp',
-      component: signUp
+      path: '/register',
+      name: 'register',
+      component: register
+    },
+    {
+      path: '/forgetPassword',
+      name: 'forgetPassword',
+      component: forgetPassword,
+      redirect: '/forgetPassword/stepOne',
+      children: [
+        {
+          path: '/forgetPassword/stepOne',
+          name: 'stepOne',
+          component: stepOne
+        },
+        {
+          path: '/forgetPassword/stepTwo',
+          name: 'stepTwo',
+          component: stepTwo
+        },
+        {
+          path: '/forgetPassword/stepThree',
+          name: 'stepThree',
+          component: stepThree
+        }
+      ]
     }
   ]
 })

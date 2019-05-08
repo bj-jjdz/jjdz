@@ -26,7 +26,7 @@ export default {
     var checkAge = (rule, value, callback) => {
       console.log('手机号', value)
       setTimeout(() => {
-        if (!(/^1(3|4|5|6|7|8)\d{9}$/.test(value))) {
+        if (!(/^1(3|5|6|7|8|9)\d{9}$/.test(value))) {
           callback(new Error('请输入正确手机号'))
         } else if (value.lenght > 13) {
           callback(new Error('请输入正确手机号'))
@@ -39,7 +39,10 @@ export default {
       byactive: 2,
       ruleForm: {
         name: '',
-        SMSVFtion: ''
+        SMSVFtion: '',
+        times: '',
+        nonces: '',
+        sign: ''
       },
       rules: {
         name: [
@@ -70,8 +73,16 @@ export default {
     // 验证码
     VerificationCode () {
       let that = this
+      let signs = 'AccessKey=jjdz' + '&mobile=' + that.ruleForm.name + '&nonce=' + that.nonces + '&t=' + that.times + '&SecretKey=d01ecfe4e9a7280a4681e3ef6592b7a1'
+      this.sign = this.$md5(signs).toUpperCase()
+      console.log(that.ruleForm.name)
+      console.log(signs)
       let data = {
-        mobile : that.ruleForm.name
+        mobile: that.ruleForm.name,
+        t: that.times,
+        nonce: that.nonces,
+        sign: that.sign,
+        type: 1
       }
       that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/Home/Register/register_duanxin', qs.stringify(data)).then(function (res) {
         if (res.data.status === 'OK') {
@@ -95,16 +106,20 @@ export default {
         } else if (res.data.status === 'NG') {
           that.$message({
             type: 'info',
-            message: '该手机号已注册!'
+            message: res.data.msg
           })
         } else {
           that.$message({
             type: 'info',
-            message: '失败，请重试!'
+            message: res.data.msg
           })
         }
       })
     }
+  },
+  mounted () {
+    this.times = Math.round(new Date().getTime() / 1000).toString()
+    this.nonces = Math.round(Math.random() * 1000000) + Math.ceil(Math.random() * 100) + Math.floor(Math.random() * 10)
   }
 }
 </script>

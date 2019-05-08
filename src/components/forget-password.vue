@@ -27,11 +27,9 @@ export default {
   methods: {
     chinldByValue (byactive) {
       this.active = byactive
-      console.log(byactive, 'byactive')
     }
   },
   mounted () {
-    console.log(this.stepOne)
   }
 }
 </script>

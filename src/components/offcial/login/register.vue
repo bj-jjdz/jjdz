@@ -59,7 +59,7 @@ export default {
     var checkAge = (rule, value, callback) => {
       console.log('手机号', value)
       setTimeout(() => {
-        if (!(/^1(3|4|5|7|8)\d{9}$/.test(value))) {
+        if (!(/^1(3|4|6|5|7|8)\d{9}$/.test(value))) {
           callback(new Error('请输入正确手机号'))
         } else if (value.lenght > 13) {
           callback(new Error('请输入正确手机号'))
@@ -96,7 +96,10 @@ export default {
         pass: '',
         checkPass: '',
         mobile: '',
-        verification: ''
+        verification: '',
+        times: '',
+        nonces: '',
+        sign: ''
       },
       rules: {
         pass: [
@@ -130,20 +133,18 @@ export default {
 
     }
   },
-  mounted () {
-  },
   methods: {
     submitForm () {
       console.log(this.ruleForm, 'submitForm')
-      if (this.ruleForm.mobile === '' || this.ruleForm.pass === '' || this.ruleForm.checkPass === '' || this.checked === true) {
+      if (this.ruleForm.mobile === '' || this.ruleForm.pass === '' || this.ruleForm.checkPass === '') {
         this.$message.error({message: '注意：有未填项'})
         return
       }
+      let that = this
       let mobile = this.ruleForm.mobile
       let pass = this.ruleForm.pass
       let verification = this.ruleForm.verification
-      let that = this
-      that.$axios.post(this.httpUrlRSS + '/Home/Register/register', qs.stringify({'mobile': mobile, 'password': pass, 'verify': verification})).then(function (res) {
+      that.$axios.post(this.httpUrlRSS + 'Home/Register/register', qs.stringify({'mobile': mobile, 'password': pass, 'verify': verification})).then(function (res) {
         console.log('注册', res)
         if (res.data.code === '200') {
           that.$message({
@@ -174,6 +175,16 @@ export default {
       this.time = 60
     },
     sliderBtn () {
+      let that = this
+      let signs = 'AccessKey=jjdz' + '&mobile=' + that.ruleForm.mobile + '&nonce=' + that.nonces + '&t=' + that.times + '&SecretKey=d01ecfe4e9a7280a4681e3ef6592b7a1'
+      this.sign = this.$md5(signs).toUpperCase()
+      let data = {
+        mobile: this.ruleForm.mobile,
+        t: that.times,
+        nonce: that.nonces,
+        sign: that.sign,
+        type: 2
+      }
       console.log('手机号：', this.ruleForm)
       if (this.ruleForm.mobile === '' || this.ruleForm.pass === '' || this.ruleForm.checkPass === '') {
         this.$message.error({message: '注意：有未填项'})
@@ -184,9 +195,7 @@ export default {
           type: 'success',
           message: '验证成功!'
         })
-        let that = this
-        let mobile = that.ruleForm.mobile
-        that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/Home/Register/register_duanxin', qs.stringify({'mobile': mobile})).then(function (res) {
+        that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/Home/Register/register_duanxin', qs.stringify(data)).then(function (res) {
           if (res.data.status === 'OK') {
             that.$message({
               type: 'success',
@@ -208,12 +217,12 @@ export default {
           } else if (res.data.status === 'NG') {
             that.$message({
               type: 'info',
-              message: '该手机号已注册!'
+              message: res.data.msg
             })
           } else {
             that.$message({
               type: 'info',
-              message: '失败，请重试!'
+              message: res.data.msg
             })
           }
         })
@@ -225,6 +234,10 @@ export default {
         })
       }
     }
+  },
+  mounted () {
+    this.times = Math.round(new Date().getTime() / 1000).toString()
+    this.nonces = Math.round(Math.random() * 1000000) + Math.ceil(Math.random() * 100) + Math.floor(Math.random() * 10)
   }
 }
 </script>

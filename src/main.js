@@ -8,10 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'babel-polyfill'
 import axios from 'axios'
 import commonHttp from '@/assets/js/common.js'
+import md5 from 'js-md5'
 // import moment from 'moment'
 // import VueRouter from 'vue-router';
 
 Vue.config.productionTip = false
+Vue.prototype.$md5 = md5
 
 Vue.use(commonHttp)
 Vue.use(ElementUI)

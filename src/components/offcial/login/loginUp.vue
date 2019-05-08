@@ -20,11 +20,17 @@
                 <span></span>
               </div>
               <div class="account">
-                <!-- <input id="username" name="username" tabindex="1" placeholder="企业账户" type="text" value> -->
-                <el-input placeholder="企业账户" v-model="username" class="input-with-select" prefix-icon="el-icon-lock">
-                  <el-select v-model="select" slot="prepend" style="width:5rem;border:0px;">
-                    <el-option label="个人账户" value="0"></el-option>
-                    <el-option label="企业账户" value="1"></el-option>
+                <el-input placeholder="请输入您的用户名"
+                          v-model="username"
+                          class="input-with-select"
+                          prefix-icon="el-icon-lock">
+                  <el-select v-model="value"
+                             slot="prepend"
+                             style="width:5rem;border:0px;">
+                    <el-option v-for="item in options"
+                               :key="item.value"
+                               :label="item.label"
+                               :value="item.value"></el-option>
                   </el-select>
                 </el-input>
               </div>
@@ -42,7 +48,7 @@
                 </el-input>
               </div>
               <!-- 登陆按钮 -->
-              <input type="button" class="immediately" onclick="Loigin();" value="登陆">
+              <el-button type="button" class="immediately" @click="loigins">登陆</el-button>
               <!-- 跳转注册账号---忘记密码 -->
               <div class="functionality clearfix">
                 <div class="register">
@@ -62,12 +68,57 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
   data () {
     return {
       username: '',
       password: '',
-      select: '1'
+      select: '1',
+      value: '1',
+      options: [
+        {
+          value: '1',
+          label: '个人账户'
+        },
+        {
+          value: '2',
+          label: '企业账户'
+        }
+      ]
+    }
+  },
+  methods: {
+    loigins () {
+      let that = this
+      let data = {
+        mobile: that.username,
+        password: that.password,
+        state: that.value
+      }
+      that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Login/check_user', qs.stringify(data)).then(function (res) {
+        if (res.data.state === '200') {
+          that.$message({
+            type: 'success',
+            message: res.data.msg
+          })
+        } else if (res.data.state === '401') {
+          that.$message({
+            type: 'error',
+            message: res.data.msg
+          })
+        } else if (res.data.state === '403') {
+          that.$message({
+            type: 'error',
+            message: res.data.msg
+          })
+        } else {
+          that.$message({
+            type: 'error',
+            message: res.data.msg
+          })
+        }
+      })
     }
   }
 }

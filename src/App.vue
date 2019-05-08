@@ -302,12 +302,20 @@ export default {
 .el-menu.el-menu--horizontal{
   border:0px;
 }
+.el-menu--horizontal{
+  width:100%;
+}
+.el-menu--popup-bottom-start{
+  margin-top:15px;
+  background-color:#000 !important;
+  width:101%;
+}
 /* 导航条 */
 .el-card{
   border:0rem;
   background-color:#000;
   border-radius: 0px;
-  width:120rem;
+  width:100%;
   height:25rem;
   color:#ffffff;
   font-family: PingFang-SC-Medium;

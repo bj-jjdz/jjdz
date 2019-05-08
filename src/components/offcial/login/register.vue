@@ -93,6 +93,7 @@ export default {
     }
     return {
       ruleForm: {
+        lase: '',
         pass: '',
         checkPass: '',
         mobile: '',
@@ -130,7 +131,6 @@ export default {
       time: 60,
       // 蒙层
       fullscreenLoading: false
-
     }
   },
   methods: {
@@ -144,7 +144,8 @@ export default {
       let mobile = this.ruleForm.mobile
       let pass = this.ruleForm.pass
       let verification = this.ruleForm.verification
-      that.$axios.post(this.httpUrlRSS + 'Home/Register/register', qs.stringify({'mobile': mobile, 'password': pass, 'verify': verification})).then(function (res) {
+      let last = this.last
+      that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/Home/Register/register', qs.stringify({'mobile': mobile, 'password': pass, 'verify': verification, 'last': last})).then(function (res) {
         console.log('注册', res)
         if (res.data.code === '200') {
           that.$message({
@@ -197,6 +198,7 @@ export default {
         })
         that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/Home/Register/register_duanxin', qs.stringify(data)).then(function (res) {
           if (res.data.status === 'OK') {
+            that.last = res.data.last
             that.$message({
               type: 'success',
               message: '发送信息成功!'

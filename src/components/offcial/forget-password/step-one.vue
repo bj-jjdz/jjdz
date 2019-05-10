@@ -9,7 +9,8 @@
         <el-input v-model.number="ruleForm.SMSVFtion"
                   class="MyInput"
                   placeholder="请输入六位验证码">
-          <el-button slot="append" class="FSyanzhen" @click="VerificationCode">发送验证</el-button>
+          <el-button slot="append" class="FSyanzhen" @click="VerificationCode" v-model="ruleForm.verification">发送验证</el-button>
+          <el-button class="lastCont" :disabled="isDisabled" @click="setTime">{{buttonName}}</el-button>
         </el-input>
       </el-form-item>
       <el-form-item class="formBtn">
@@ -37,6 +38,9 @@ export default {
     }
     return {
       byactive: 2,
+      buttonName: '',
+      isDisabled: false,
+      time: 60,
       ruleForm: {
         name: '',
         SMSVFtion: '',
@@ -69,6 +73,12 @@ export default {
           return false
         }
       })
+    },
+    // 倒计时
+    setTime () {
+      this.VerificationCode()
+      this.isDisabled = true
+      this.time = 60
     },
     // 验证码
     VerificationCode () {

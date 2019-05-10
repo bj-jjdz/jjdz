@@ -9,6 +9,7 @@ import 'babel-polyfill'
 import axios from 'axios'
 import commonHttp from '@/assets/js/common.js'
 import md5 from 'js-md5'
+import Vuex from 'vuex'
 // import moment from 'moment'
 // import VueRouter from 'vue-router';
 
@@ -17,7 +18,23 @@ Vue.prototype.$md5 = md5
 
 Vue.use(commonHttp)
 Vue.use(ElementUI)
+Vue.use(Vuex)
 Vue.prototype.$axios = axios
+
+const store = new Vuex.Store({
+  state: {
+    // 存储token
+    Authorization: sessionStorage.getItem('Authorization') ? sessionStorage.getItem('Authorization') : ''
+  },
+  mutations: {
+    // 修改token，并将token存入localStorage
+    changeLogin (state, user) {
+      state.Authorization = user.Authorization
+      sessionStorage.setItem('Authorization', user.Authorization)
+    }
+  }
+})
+export default store
 
 /* eslint-disable no-new */
 new Vue({

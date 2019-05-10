@@ -22,7 +22,7 @@ export default {
   methods: {
     next () {
       this.$emit('chinldByValue', this.byactive)
-      this.$router.push('/loginUp/')
+      this.$router.push('/')
     }
   }
 }

@@ -149,11 +149,16 @@
       </el-col>
       <!-- 登陆注册 -->
       <el-col :span="2" class="title_nav_zj" :offset="1">
-        <div class="login_up">
-          <router-link to='/loginUp' class="login_up_img">登陆</router-link>
+        <div v-if='loginId == 2' class="userName_id">
+          欢迎 <a href="javascript:;">{{this.username}}</a> 登陆
         </div>
-        <div class="login_in">
-          <router-link to="/register" class="login_in_img">注册</router-link>
+        <div v-else>
+          <div class="login_up">
+            <router-link to='/loginUp' class="login_up_img">登陆</router-link>
+          </div>
+          <div class="login_in">
+            <router-link to="/register" class="login_in_img">注册</router-link>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -264,15 +269,10 @@ export default {
   name: 'App',
   data () {
     return {
+      loginId: '',
       activeIndex: '1',
       activeIndex2: '1'
     }
-  },
-  mounted () {
-    this.autoSetScale() // 进页面先执行一次页面高度和宽度计算然后赋值
-    window.addEventListener('resize', () => {
-      this.autoSetScale()
-    }, false)
   },
   methods: {
     autoSetScale () {
@@ -280,8 +280,29 @@ export default {
       this.transformScale = `scale(${zoom})`
       this.width = `${(window.innerWidth / zoom).toFixed(2)}px`
       console.log('屏幕尺寸', this.width)
+      console.log(this.loginId, 'loginId')
     },
-    handleSelect () {}
+    handleSelect () {},
+    clickLogin () {
+      this.loginId = this.$route.params.loginId
+      this.username = this.$route.params.username
+      window.localStorage.setItem('token', this.loginId, this.username)
+      console.log(window.localStorage, 'window.localStorage')
+      console.log(this.$route.params.loginId, 'this.$route.params.loginId')
+      console.log(this.loginId, 'this.loginId')
+      console.log(this.username, '$route.params.username')
+      console.log(this.username, 'username')
+    }
+  },
+  mounted () {
+    this.autoSetScale() // 进页面先执行一次页面高度和宽度计算然后赋值
+    window.addEventListener('resize', () => {
+      this.autoSetScale()
+    }, false)
+    console.log(window.localStorage, 'window.localStorage')
+  },
+  updated () {
+    this.clickLogin()
   }
 }
 </script>
@@ -397,6 +418,12 @@ export default {
 }
 .title_nav .login_up_img:hover, .title_nav .login_in_img:hover{
   color: #ff0000;
+}
+.userName_id{
+  font-size: 14px;
+}
+.userName_id>a{
+  color:#ff0000;
 }
 /* 登陆图标 */
 .title_nav .login_up_img:after{

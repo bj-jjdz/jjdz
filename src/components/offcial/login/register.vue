@@ -150,7 +150,7 @@ export default {
         if (res.data.code === '200') {
           that.$message({
             type: 'success',
-            message: '注册成功 自动跳转登陆页面'
+            message: res.data.message
           })
           that.fullscreenLoading = true
           setTimeout(() => {
@@ -204,6 +204,7 @@ export default {
               message: '发送信息成功!'
             })
             that.slider = '1'
+            console.log(that.slider)
             let interval = window.setInterval(function () {
               that.isDisabled = true
               that.buttonName = '重新发送（' + that.time + '）'

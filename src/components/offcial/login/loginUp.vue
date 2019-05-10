@@ -102,6 +102,13 @@ export default {
             type: 'success',
             message: res.data.msg
           })
+          that.$router.push({
+            name: 'index',
+            params: {
+              loginId: 2,
+              username: that.username
+            }
+          })
         } else if (res.data.state === '401') {
           that.$message({
             type: 'error',
@@ -112,9 +119,10 @@ export default {
             type: 'error',
             message: res.data.msg
           })
-        } else {
+        } else if (res.data.state === '999') {
+          that.$router.push('/backstage/backstageBanner')
           that.$message({
-            type: 'error',
+            type: 'success',
             message: res.data.msg
           })
         }

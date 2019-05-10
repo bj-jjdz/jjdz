@@ -149,8 +149,9 @@
       </el-col>
       <!-- 登陆注册 -->
       <el-col :span="2" class="title_nav_zj" :offset="1">
-        <div v-if='loginId == 2' class="userName_id">
-          欢迎 <a href="javascript:;">{{this.username}}</a> 登陆
+        <div v-if='loginIds == 2' class="userName_id">
+          欢迎 <a href="javascript:;">{{this.usernames}}</a> 登陆
+          <el-button type="text" @click='getout'>注销</el-button>
         </div>
         <div v-else>
           <div class="login_up">
@@ -265,33 +266,53 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
   name: 'App',
   data () {
     return {
-      loginId: '',
+      loginIds: '',
+      usernames: '',
       activeIndex: '1',
       activeIndex2: '1'
     }
+  },
+  created () {
+    console.log(window.localStorage, 'created..window.localStorage')
+    let that = this
+    let data = {
+      mobile: window.localStorage.username,
+      password: window.localStorage.password,
+      state: window.localStorage.value
+    }
+    that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Login/check_user', qs.stringify(data)).then(function (res) {
+      if (res.data.state === '200') {
+        that.loginIds = window.localStorage.loginId
+        that.usernames = window.localStorage.username
+        console.log(window.localStorage.loginId, 'localStorage.loginId')
+        console.log(that.usernames)
+      }
+    })
   },
   methods: {
     autoSetScale () {
       let zoom = (window.innerHeight / 800).toFixed(3)
       this.transformScale = `scale(${zoom})`
       this.width = `${(window.innerWidth / zoom).toFixed(2)}px`
-      console.log('屏幕尺寸', this.width)
-      console.log(this.loginId, 'loginId')
+      // console.log('屏幕尺寸', this.width)
     },
     handleSelect () {},
     clickLogin () {
-      this.loginId = this.$route.params.loginId
       this.username = this.$route.params.username
-      window.localStorage.setItem('token', this.loginId, this.username)
-      console.log(window.localStorage, 'window.localStorage')
-      console.log(this.$route.params.loginId, 'this.$route.params.loginId')
-      console.log(this.loginId, 'this.loginId')
-      console.log(this.username, '$route.params.username')
-      console.log(this.username, 'username')
+      this.loginId = this.$route.params.loginIds
+      console.log(this.loginId, 'this.loginId222')
+    },
+    getout () {
+      window.localStorage.setItem('username', '')
+      window.localStorage.setItem('password', '')
+      window.localStorage.setItem('loginId', '')
+      window.localStorage.setItem('value', '')
+      this.$router.go(0)
     }
   },
   mounted () {

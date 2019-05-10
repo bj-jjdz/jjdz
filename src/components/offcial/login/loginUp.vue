@@ -76,6 +76,7 @@ export default {
       password: '',
       select: '1',
       value: '1',
+      loginId: '2',
       options: [
         {
           value: '1',
@@ -102,11 +103,18 @@ export default {
             type: 'success',
             message: res.data.msg
           })
+          // window.localStorage.setItem('token', [{'username': that.username}, {'loginId': that.loginId}, {'state': that.value}])
+          window.localStorage.setItem('username', that.username)
+          window.localStorage.setItem('password', that.password)
+          window.localStorage.setItem('loginId', that.loginId)
+          window.localStorage.setItem('value', that.value)
           that.$router.push({
             name: 'index',
             params: {
-              loginId: 2,
-              username: that.username
+              loginIds: 2,
+              usernames: that.username,
+              password: that.password,
+              state: that.value
             }
           })
         } else if (res.data.state === '401') {

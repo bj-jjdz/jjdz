@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
   data () {
     var checkAge = (rule, value, callback) => {
@@ -77,6 +78,31 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$emit('chinldByValue', this.byactive)
+          let that = this
+          let mobile = that.$route.params.mobile
+          let data = {
+            mobile: mobile,
+            password: this.ruleForm.checkPass
+          }
+          that.$axios.post(this.httpUrlRSS + '/jiujiangdongzhu/Home/Register/forget_pass', qs.stringify(data)).then(function (res) {
+            if (res.data.status === '200') {
+              this.$message({
+                type: 'success',
+                message: res.data.message
+              })
+              this.$router.push({path: '/forgetPassword/stepThree'})
+            } else if (res.data.status === '201') {
+              that.$message({
+                type: 'info',
+                message: res.data.message
+              })
+            } else {
+              that.$message({
+                type: 'info',
+                message: res.data.message
+              })
+            }
+          })
           this.$router.push('/forgetPassword/stepThree/')
         } else {
           this.$message.error({message: '注意：有未填项'})

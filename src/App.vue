@@ -24,7 +24,7 @@
                   <el-col :span="2" :offset="7">
                     <el-row>
                       <el-col :span="24" class="titleOne">网站建设</el-col>
-                      <el-col :span="24" class="itemOne">响应式展示门户</el-col>
+                      <el-col :span="24" class="itemOne">品牌响应式门户</el-col>
                       <el-col :span="24" class="itemOne">全网响应式门户</el-col>
                       <el-col :span="24" class="itemOne">集团站群</el-col>
                       <el-col :span="24" class="itemOne">电商门户</el-col>
@@ -285,12 +285,15 @@ export default {
       password: window.localStorage.password,
       state: window.localStorage.value
     }
+    if (window.localStorage.username === '' || window.localStorage.password === '' || window.localStorage.value === '') {
+      return
+    }
     that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Login/check_user', qs.stringify(data)).then(function (res) {
       if (res.data.state === '200') {
         that.loginIds = window.localStorage.loginId
         that.usernames = window.localStorage.username
         console.log(window.localStorage.loginId, 'localStorage.loginId')
-        console.log(that.usernames)
+        console.log(that.loginIds, '???????')
       }
     })
   },
@@ -303,9 +306,9 @@ export default {
     },
     handleSelect () {},
     clickLogin () {
-      this.username = this.$route.params.username
-      this.loginId = this.$route.params.loginIds
-      console.log(this.loginId, 'this.loginId222')
+      this.username = this.$route.params.usernames
+      this.loginIds = this.$route.params.loginIds
+      console.log(this.loginIds, 'this.loginId222')
     },
     getout () {
       window.localStorage.setItem('username', '')

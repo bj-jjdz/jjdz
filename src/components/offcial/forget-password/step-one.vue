@@ -10,7 +10,7 @@
                   class="MyInput"
                   placeholder="请输入六位验证码">
           <el-button slot="append" class="FSyanzhen" @click="VerificationCode" v-model="ruleForm.verification">发送验证</el-button>
-          <el-button class="lastCont" :disabled="isDisabled" @click="setTime">{{buttonName}}</el-button>
+          <!-- <el-button class="lastCont" :disabled="isDisabled" @click="setTime">{{buttonName}}</el-button> -->
         </el-input>
       </el-form-item>
       <el-form-item class="formBtn">
@@ -67,7 +67,35 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$emit('chinldByValue', this.byactive)
-          this.$router.push('/forgetPassword/stepTwo/')
+          let that = this
+          let data = {
+            mobile: that.ruleForm.name,
+            verify: that.ruleForm.SMSVFtion
+          }
+          that.$axios.post(this.httpUrlRSS + '/jiujiangdongzhu/Home/Register/contrast', qs.stringify(data)).then(function (res) {
+            if (res.data.status === '200') {
+              that.$message({
+                type: 'success',
+                message: res.data.message
+              })
+              that.$router.push({
+                path: '/forgetPassword/stepTwo',
+                params: {
+                  mobile: that.ruleForm.name
+                }
+              })
+            } else if (res.data.status === '201') {
+              that.$message({
+                type: 'info',
+                message: res.data.message
+              })
+            } else {
+              that.$message({
+                type: 'info',
+                message: res.data.message
+              })
+            }
+          })
         } else {
           this.$message.error({message: '注意：有未填项'})
           return false
@@ -75,11 +103,11 @@ export default {
       })
     },
     // 倒计时
-    setTime () {
-      this.VerificationCode()
-      this.isDisabled = true
-      this.time = 60
-    },
+    // setTime () {
+    //   this.VerificationCode()
+    //   this.isDisabled = true
+    //   this.time = 60
+    // },
     // 验证码
     VerificationCode () {
       let that = this
@@ -100,19 +128,6 @@ export default {
             type: 'success',
             message: '发送信息成功!'
           })
-          that.slider = '1'
-          let interval = window.setInterval(function () {
-            that.isDisabled = true
-            that.buttonName = '重新发送（' + that.time + '）'
-            --that.time
-            if (that.time < 0) {
-              that.isDisabled = false
-              that.buttonName = '重新发送'
-              that.buttonName.style = 'background:#fff'
-              that.time = 60
-              window.clearInterval(interval)
-            }
-          }, 1000)
         } else if (res.data.status === 'NG') {
           that.$message({
             type: 'info',

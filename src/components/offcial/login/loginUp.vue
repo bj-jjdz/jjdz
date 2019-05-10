@@ -103,11 +103,6 @@ export default {
             type: 'success',
             message: res.data.msg
           })
-          // window.localStorage.setItem('token', [{'username': that.username}, {'loginId': that.loginId}, {'state': that.value}])
-          window.localStorage.setItem('username', that.username)
-          window.localStorage.setItem('password', that.password)
-          window.localStorage.setItem('loginId', that.loginId)
-          window.localStorage.setItem('value', that.value)
           that.$router.push({
             name: 'index',
             params: {
@@ -117,6 +112,10 @@ export default {
               state: that.value
             }
           })
+          window.localStorage.setItem('username', that.username)
+          window.localStorage.setItem('password', that.password)
+          window.localStorage.setItem('loginId', that.loginId)
+          window.localStorage.setItem('value', that.value)
         } else if (res.data.state === '401') {
           that.$message({
             type: 'error',

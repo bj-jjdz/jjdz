@@ -13,6 +13,10 @@ import forgetPassword from '@/components/forget-password'
 import stepOne from '@/components/offcial/forget-password/step-one'
 import stepTwo from '@/components/offcial/forget-password/step-two'
 import stepThree from '@/components/offcial/forget-password/step-three'
+import proAllnetShow from '@/components/offcial/pro/pro-allnet/pro-allnet-show'
+import proAllnetResponse from '@/components/offcial/pro/pro-allnet/pro-allnet-response'
+import proAllnetBrand from '@/components/offcial/pro/pro-allnet/pro-allnet-brand'
+import PackageOffer from '@/components/offcial/pro/PackageOffer'
 // import test from '@/components/backstage/test'
 
 Vue.use(Router)
@@ -89,6 +93,26 @@ export default new Router({
           component: stepThree
         }
       ]
+    },
+    {
+      path: '/PackageOffer',
+      name: 'PackageOffer',
+      component: PackageOffer
+    },
+    {
+      path: '/proAllnetShow',
+      name: 'proAllnetShow',
+      component: proAllnetShow
+    },
+    {
+      path: '/proAllnetResponse',
+      name: 'proAllnetResponse',
+      component: proAllnetResponse
+    },
+    {
+      path: '/proAllnetBrand',
+      name: 'proAllnetBrand',
+      component: proAllnetBrand
     }
   ]
 })

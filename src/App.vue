@@ -23,9 +23,9 @@
                 <el-row>
                   <el-col :span="2" :offset="7">
                     <el-row>
-                      <el-col :span="24" class="titleOne">网站建设</el-col>
-                      <el-col :span="24" class="itemOne">品牌响应式门户</el-col>
-                      <el-col :span="24" class="itemOne">全网响应式门户</el-col>
+                      <el-col :span="24" class="itemOne"><router-link to='/proAllnetShow'>响应式展示门户</router-link></el-col>
+                      <el-col :span="24" class="itemOne"><router-link to='/proAllnetResponse'>全网响应式门户</router-link></el-col>
+                      <el-col :span="24" class="itemOne"><router-link to="/proAllnetBrand">品牌响应式门户</router-link></el-col>
                       <el-col :span="24" class="itemOne">集团站群</el-col>
                       <el-col :span="24" class="itemOne">电商门户</el-col>
                     </el-row>
@@ -292,7 +292,7 @@ export default {
       if (res.data.state === '200') {
         that.loginIds = window.localStorage.loginId
         that.usernames = window.localStorage.username
-        console.log(window.localStorage.loginId, 'localStorage.loginId')
+        console.log(localStorage.loginId, 'localStorage.loginId')
         console.log(that.loginIds, '???????')
       }
     })
@@ -311,10 +311,11 @@ export default {
       console.log(this.loginIds, 'this.loginId222')
     },
     getout () {
-      window.localStorage.setItem('username', '')
-      window.localStorage.setItem('password', '')
-      window.localStorage.setItem('loginId', '')
-      window.localStorage.setItem('value', '')
+      // window.localStorage.setItem('username', '')
+      // window.localStorage.setItem('password', '')
+      // window.localStorage.setItem('loginId', '')
+      // window.localStorage.setItem('value', '')
+      localStorage.clear()
       this.$router.go(0)
     }
   },
@@ -323,7 +324,7 @@ export default {
     window.addEventListener('resize', () => {
       this.autoSetScale()
     }, false)
-    console.log(window.localStorage, 'window.localStorage')
+    this.loginIds = window.localStorage.loginId
   },
   updated () {
     this.clickLogin()

@@ -401,7 +401,7 @@ export default {
     // banner随着屏幕大小改变
     setSize () {
       this.bannerHeight = 600 / 2560 * this.screenWidth
-      console.log(this.screenWidth, 'this.screenWidth')
+      // console.log(this.screenWidth, 'this.screenWidth')
       if (this.screenWidth > 1053) {
         this.bannerHeight = 450
       } else if (this.screenWidth < 1053 && this.screenWidth > 800) {
@@ -409,7 +409,7 @@ export default {
       } else if (this.screenWidth < 800) {
         this.bannerHeight = 280
       }
-      console.log(this.bannerHeight, 'this.bannerHeight')
+      // console.log(this.bannerHeight, 'this.bannerHeight')
     },
     // 获取banner
     caseUpload () {

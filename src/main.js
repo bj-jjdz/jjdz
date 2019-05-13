@@ -10,6 +10,7 @@ import axios from 'axios'
 import commonHttp from '@/assets/js/common.js'
 import md5 from 'js-md5'
 import Vuex from 'vuex'
+// import store from './store/store'
 // import moment from 'moment'
 // import VueRouter from 'vue-router';
 

@@ -4,5 +4,6 @@ export default{
     Vue.prototype.httpUrlWMK = 'http://192.168.1.184/'
     Vue.prototype.httpUrlSS = 'http://192.168.1.197/'
     Vue.prototype.httpUrlMK = 'http://192.168.1.184/'
+    Vue.prototype.httpUrlXS = 'http://47.95.6.137/'
   }
 }

@@ -1,24 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex);
-export default new Vuex.Store({
-  state: JSON.parse(localStorage.getItem('user')) || {},
-  mutations: {
-    Login (state, user) {
-      localStorage.setItem('user', JSON.stringify(user));
-      Object.assign(state, user)
-    },
-    Logout (state) {
-      localStorage.removeItem('user');
-      Object.keys(state).forEach(k => Vue.delete(state, k))
+
+Vue.use(Vuex)
+const key = 'user'
+const store = new Vuex.Store({
+  state () {
+    return {
+      user: null
     }
   },
-  actions: {
-    login ({ commit }, user) {
-      commit("Login", user)
+  getters: {
+    getStorage: function (state) {
+      if (!state.user) {
+        state.user = JSON.parse(localStorage.getItem(key))
+      }
+      return state.user
+    }
+  },
+  mutations: {
+    $_setStorage (state, value) {
+      state.user = value
+      localStorage.setItem(key, JSON.stringify(value))
     },
-    logout ({ commit }) {
-      commit("Logout")
+    $_removeStorage (state) {
+      state.user = null
+      localStorage.removeItem(key)
     }
   }
 })
+
+export default store

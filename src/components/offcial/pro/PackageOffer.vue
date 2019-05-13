@@ -29,7 +29,8 @@
             <el-col :span="3" :offset="1">
               <img :src='imgSrc'
                    style="width:84px;height:40px;"
-                   @click="foucesClick">
+                   @click=foucesClick
+                   >
             </el-col>
           </el-row>
         </el-col>
@@ -126,8 +127,9 @@ export default {
     },
     foucesClick () {
       let that = this
-      that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Price/Verification', qs.stringify()).then(function (res) {
-        this.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification'
+      let num = Math.ceil(Math.random() * 10)
+      that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Price/Verification').then(function (res) {
+        that.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification' + '?' + num
       })
     }
   },
@@ -135,6 +137,7 @@ export default {
     this.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification'
   }
 }
+
 </script>
 
 <style>

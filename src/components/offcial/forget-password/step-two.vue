@@ -103,7 +103,6 @@ export default {
               })
             }
           })
-          this.$router.push('/forgetPassword/stepThree/')
         } else {
           this.$message.error({message: '注意：有未填项'})
           return false

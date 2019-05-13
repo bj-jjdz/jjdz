@@ -26,7 +26,7 @@
                       <el-col :span="24" class="itemOne"><router-link to='/proAllnetShow'>响应式展示门户</router-link></el-col>
                       <el-col :span="24" class="itemOne"><router-link to='/proAllnetResponse'>全网响应式门户</router-link></el-col>
                       <el-col :span="24" class="itemOne"><router-link to="/proAllnetBrand">品牌响应式门户</router-link></el-col>
-                      <el-col :span="24" class="itemOne">集团站群</el-col>
+                      <el-col :span="24" class="itemOne"><router-link to="/GroupsShow">集团站群</router-link></el-col>
                       <el-col :span="24" class="itemOne">电商门户</el-col>
                     </el-row>
                   </el-col>
@@ -280,6 +280,8 @@ export default {
   created () {
     console.log(window.localStorage, 'created..window.localStorage')
     let that = this
+    that.loginIds = window.localStorage.loginId
+    that.usernames = window.localStorage.username
     let data = {
       mobile: window.localStorage.username,
       password: window.localStorage.password,
@@ -293,6 +295,7 @@ export default {
         that.loginIds = window.localStorage.loginId
         that.usernames = window.localStorage.username
         console.log(localStorage.loginId, 'localStorage.loginId')
+        console.log(localStorage.username, 'localStorage.username')
         console.log(that.loginIds, '???????')
       }
     })
@@ -309,12 +312,9 @@ export default {
       this.username = this.$route.params.usernames
       this.loginIds = this.$route.params.loginIds
       console.log(this.loginIds, 'this.loginId222')
+      console.log(this.username, 'username2222223333')
     },
     getout () {
-      // window.localStorage.setItem('username', '')
-      // window.localStorage.setItem('password', '')
-      // window.localStorage.setItem('loginId', '')
-      // window.localStorage.setItem('value', '')
       localStorage.clear()
       this.$router.go(0)
     }
@@ -324,7 +324,9 @@ export default {
     window.addEventListener('resize', () => {
       this.autoSetScale()
     }, false)
-    this.loginIds = window.localStorage.loginId
+    let that = this
+    that.loginIds = window.localStorage.loginId
+    that.usernames = window.localStorage.username
   },
   updated () {
     this.clickLogin()

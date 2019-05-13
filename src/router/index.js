@@ -17,6 +17,7 @@ import proAllnetShow from '@/components/offcial/pro/pro-allnet/pro-allnet-show'
 import proAllnetResponse from '@/components/offcial/pro/pro-allnet/pro-allnet-response'
 import proAllnetBrand from '@/components/offcial/pro/pro-allnet/pro-allnet-brand'
 import PackageOffer from '@/components/offcial/pro/PackageOffer'
+import GroupsShow from '@/components/offcial/Groups/Groups-allnet/Groups-show'
 // import test from '@/components/backstage/test'
 
 Vue.use(Router)
@@ -113,6 +114,11 @@ export default new Router({
       path: '/proAllnetBrand',
       name: 'proAllnetBrand',
       component: proAllnetBrand
+    },
+    {
+      path: '/GroupsShow',
+      name: 'GroupsShow',
+      component: GroupsShow
     }
   ]
 })

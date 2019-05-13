@@ -78,12 +78,13 @@ export default {
                 type: 'success',
                 message: res.data.message
               })
-              that.$router.push({
-                path: '/forgetPassword/stepTwo',
-                params: {
-                  mobile: that.ruleForm.name
-                }
-              })
+              this.$router.push('/forgetPassword/stepTwo/')
+              // this.$router.push({
+              //   name: 'stepTwo',
+              //   params: {
+              //     mobile: that.ruleForm.name
+              //   }
+              // })
             } else if (res.data.status === '201') {
               that.$message({
                 type: 'info',

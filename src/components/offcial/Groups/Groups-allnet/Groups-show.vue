@@ -7,7 +7,7 @@
       </div>
       <div class="tab">
         <template>
-          <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+          <el-tabs v-model="activeName" type="card" @tab-click="handleClick" @keyup.native="KeyUpS">
             <el-tab-pane label="产品优势" name="first">
               <div class="one clearfix">
                 <div class="one_title">
@@ -23,21 +23,21 @@
                     <p>集团站群多终端展示</p>
                     <p>响应式自动适配pc、手机、pad、TV等多端</p>
                   </div>
-                  <div class="banner1right"><img src="../../../../assets/img/pro-allnet/response/detail-banner2-right.png" alt=""></div>
-                  <div class="banner1left"><img src="../../../../assets/img/pro-allnet/response/detail-banner1-left.png" alt=""></div>
+                  <div class="banner1right"><img src="../../../../assets/img/groups-show/detail-banner2-right.png" alt=""></div>
+                  <div class="banner1left"><img src="../../../../assets/img/groups-show/detail-banner1-left.png" alt=""></div>
                 </div>
                 <div class="fourSuccessNo1">
                   <p class="one_titleBig">
                     集团站群四大优势
                   </p>
                   <el-row>
-                    <el-col :span="6" :offset="4">
+                    <el-col :span="6" :offset="5">
                       <div class="oneThreeListItem">
                         <p>集团类的功能灵活扩展</p>
                         <p>可扩展、可开放、可应用、与业务应用对接</p>
                       </div>
                     </el-col>
-                    <el-col :span="5" :offset="4">
+                    <el-col :span="5" :offset="2">
                       <div class="oneThreeListItem">
                         <p>集团子公司站群管理</p>
                         <p>多站点管理、子站独立域名</p>
@@ -45,13 +45,13 @@
                     </el-col>
                   </el-row>
                   <el-row class="oneOnPadding">
-                    <el-col :span="6" :offset="4">
+                    <el-col :span="6" :offset="5">
                       <div class="oneThreeListItem">
                         <p>用户权限管理</p>
                         <p>自定义的审批机制与操作授权</p>
                       </div>
                     </el-col>
-                    <el-col :span="5" :offset="4">
+                    <el-col :span="5" :offset="2">
                       <div class="oneThreeListItem">
                         <p>一对一服务、响应及时</p>
                         <p>专人专责，7*24小时客服在线</p>
@@ -212,7 +212,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferOne">套餐价格</div>
+                    <div class="priceOneBtn Jgzx" @click="JumpPackageOfferOne">价格咨询</div>
                   </div>
                   <div class="priceOne">
                     <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
@@ -235,10 +235,10 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferTwo">套餐价格</div>
+                    <div class="priceOneBtn Jgzx" @click="JumpPackageOfferTwo">价格咨询</div>
                   </div>
                   <div class="priceOne">
-                    <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
+                    <div class="priceOneLeft"><div class="leftText">基础型套餐</div></div>
                     <div class="priceOneRight">
                       <div class="tableCont">
                         <ul>
@@ -258,10 +258,10 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferThree">套餐价格</div>
+                    <div class="priceOneBtn Jgzx" @click="JumpPackageOfferThree">价格咨询</div>
                   </div>
                   <div class="priceOne">
-                    <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
+                    <div class="priceOneLeft"><div class="leftText">基础型套餐</div></div>
                     <div class="priceOneRight">
                       <div class="tableCont">
                         <ul>
@@ -281,7 +281,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferFour">套餐价格</div>
+                    <div class="priceOneBtn Jgzx" @click="JumpPackageOfferFour">价格咨询</div>
                   </div>
                 </div>
                 <div class="oneFore clearfix">
@@ -616,7 +616,7 @@
                       <div style="float: left;margin-left:20%;margin-top:2%" class="fd">
                         <el-form-item>
                           <el-button type="primary" class="informaLeftBtn" @click="informaLeftBtn">咨询价格</el-button>
-                          <el-button class="informaRightBtn" @click="informaRightBtn">现在咨询</el-button>
+                          <el-button class="informaRightBtn OnNoformRightBtn" @click="informaRightBtn">现在咨询</el-button>
                         </el-form-item>
                       </div>
                     </el-form>
@@ -627,36 +627,43 @@
             <el-tab-pane label="案例展示" name="fourth">
               <div class="four clearfix">
                 <div class="fourOne">
-                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/show/four-banner-1.png" alt=""></div>
+                  <div style="display:inline-block"><img src="../../../../assets/img/groups-show/four-banner-1.png"></div>
                   <div class="fourOneText">
-                    <div><img style="width: 10.75rem;height: 2.875rem;" src="../../../../assets/img/pro-allnet/show/four-logo-1.png" alt=""></div>
-                    <div class="linkA"><a href="http://www.aoyom.cc/">http://www.aoyom.cc/</a></div>
-                    <div class="fourTextCont">AOYOM澳优美厨卫（中国）是一家集研发设计、模具制造、成品生产和市场营销于一体的卫浴企业，经过多年的厨卫行业沉淀与发展，澳优美厨卫现已发展成为一家规模化的厨卫企业，公司生产销售合金制品水龙头、厨房水龙头、淋浴花洒、浴室挂件各种卫浴零配件等洁具产品，是中国卫浴行业具有规模化、专业化的厨卫生产企业之一。</div>
+                    <div><img style="width:4.375rem;height:4.4375rem;" src="../../../../assets/img/groups-show/four-logo-1.png"></div>
+                    <div class="linkA"><a href="http://www.yihaiedu.cn/">http://www.yihaiedu.cn/</a></div>
+                    <div class="fourTextCont">
+                      怡海教育集团成立于1997年12月．是由香港联华投资集团有限公司（怡海置业集团、怡海花园房地产开发有限公司）投资开发建设北京怡海花园社区的同时．在王琳达董事长亲自领导下与北京市第八中学和北京第二实验小学共同创办的。
+                    </div>
                   </div>
                 </div>
                 <div class="fourTwo">
                   <div class="fourOneText">
-                    <div><img style="width: 11.9375rem;height: 3.1875rem;" src="../../../../assets/img/pro-allnet/show/four-logo-2.png" alt=""></div>
-                    <div class="linkA"><a href="http://www.jzyxl.com/">http://www.jzyxl.com/</a></div>
-                    <div class="fourTextCont">北京金正永信科技有限公司位于北京市海淀区永丰高新技术产业基地，成立于2004年，是一家专业生产钕铁硼自动打孔机、自动化非标设备、超大型工件加工、注塑模具、冲压模具、机械加工、钣金件、模组、滑台的股份制企业。 公司生产工艺先进，技术力量雄厚。拥有各种高速、精密的加工设备、加工中心、数控车、激光切割、数控线切割，数控电火花、折弯机、剪板机、车、铣、刨、磨、冲等设备。</div>
+                    <div><img style="width: 24.375rem;height:2.8125rem;" src="../../../../assets/img/groups-show/four-logo-2.png" alt=""></div>
+                    <div class="linkA"><a href="http://ghtz.shenhuagroup.com.cn/">http://ghtz.shenhuagroup.com.cn/</a></div>
+                    <div class="fourTextCont">
+                      国华能源投资有限公司（简称“国华投资公司”）成立于1998年，隶属于国务院直管的特大型中央企业——国家能源投资集团有限责任公司。
+                      国华投资公司主营业务是以风电、光伏发电为主的新能源业务建设和运营，同时开展投资及资产管理、置业及物业管理等业务。公司现拥有独资、控股子公司80家，年营业收入达100亿元，管理总资产超过930亿元，在册员工3600余人。公司本部设在北京。
+                    </div>
                   </div>
-                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/show/four-banner-2.png" alt=""></div>
+                  <div style="display:inline-block"><img src="../../../../assets/img/groups-show/four-banner-2.png" alt=""></div>
                 </div>
                 <div class="fourThree">
-                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/show/four-banner-3.png" alt=""></div>
+                  <div style="display:inline-block;margin-top:6.1875rem;"><img src="../../../../assets/img/groups-show/four-banner-3.png" alt=""></div>
                   <div class="fourOneText">
-                    <div><img style="height:2.8125rem;width: 12.25rem;" src="../../../../assets/img/pro-allnet/show/four-logo-3.png" alt=""></div>
-                    <div class="linkA"><a href="http://www.cqsjhc.com/">http://www.cqsjhc.com/</a></div>
-                    <div class="fourTextCont">重庆沈洪存餐饮管理有限公司旗下品牌重庆沈家洪城老火锅，经过三辈人的传承和近百年的发展，从1个店发展到全国302家店，从单店经营发展到公司连锁经营，公司现已是集技术研发、底料加工生产、直营店经营、餐饮连锁加盟、物流配送等专业化的餐饮管理公司。</div>
+                    <div><img style="height:3.125rem;width:9rem;" src="../../../../assets/img/groups-show/four-logo-3.png" alt=""></div>
+                    <div class="linkA"><a href="http://www.hanergymobileenergy.com/">http://www.hanergymobileenergy.com/</a></div>
+                    <div class="fourTextCont">
+                      B汉能移动能源控股集团是全球化的清洁能源跨国公司，全球薄膜太阳能发电领导者，致力于“用薄膜太阳能改变世界”。汉能的总部设在北京，员工目前已达15000人，在国内多个省份以及美洲、欧洲与中东、亚太、非洲等地区设有分支机构。在薄膜太阳能发电领域，汉能在四川、广东、海南、浙江、山东、江苏等地投资建设薄膜发电产业研发制造基地，总产能已达到3吉瓦。汉能在全球进行电站资源开发，已与新疆、内蒙古、宁夏、江苏、海南、山东、河北等省区以及欧洲多国签订了约10吉瓦的薄膜发电电站建设协议，成为涵盖技术研发、高端装备制造、组件生产和电站建设等薄膜发电产业上、中、下游全产业链整合的高科技清洁能源企业。通过全球技术整合和自主创新，汉能薄膜发电技术已达到国际领先水平。
+                    </div>
                   </div>
                 </div>
                 <div class="fourFour">
                   <div class="fourOneText">
-                    <div><img style="width: 10.9375rem;height: 3.1875rem;" src="../../../../assets/img/pro-allnet/show/four-logo-4.png" alt=""></div>
-                    <div class="linkA"><a href="http://www.zszrzm.com/">http://www.zszrzm.com/</a></div>
+                    <div><img style="width:21.5rem;height:3.8125rem;" src="../../../../assets/img/groups-show/four-logo-4.png" alt=""></div>
+                    <div class="linkA"><a href="http://www.jxcc.com/">http://www.jxcc.com/</a></div>
                     <div class="fourTextCont">中山市正日照明有限公司位于中外闻名的中国灯饰之都古镇镇。公司秉承创新、开拓精神，把握市场需求，不断推陈楚新，吸取国内外同行先进的制作技术、加工工艺和经营理念。凭借雄厚的资金实力、完善的生产能力、优秀的专业人才、过硬的产品质量，积极参与国内外城市道路、加工工艺和经营理念。凭借雄厚的资金实力、完善的生产能力、优秀的专业人才、过硬的产品质量，积极参与国内外城市道路、小区照明等建设工程，销售网络遍及全国各地。</div>
                   </div>
-                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/show/four-banner-4.png" alt=""></div>
+                  <div style="display:inline-block;margin-top:2rem;margin-left:5rem;"><img src="../../../../assets/img/groups-show/four-banner-4.png" alt=""></div>
                 </div>
               </div>
             </el-tab-pane>
@@ -703,7 +710,13 @@ export default {
   },
   methods: {
     handleClick (tab, event) {
-      console.log(tab, event)
+    },
+    KeyUpS () {
+      if (window.event.keyCode === 38) {
+        window.event.keyCode = '0'
+        window.event.returnValue = false
+      }
+      console.log(window.event.returnValue, window.event.keyCode)
     },
     YesShowNo () {
       this.yesShow = '2'
@@ -794,7 +807,7 @@ ul{
   width: 100%;
   height: 25rem;
   box-sizing: border-box;
-  background-image: url(../../../../assets/img/pro-allnet/show/pro-allnet-banner.png);
+  background-image: url(../../../../assets/img/groups-show/groups-banner.png);
   background-size: cover;
   text-align: left;
   padding: 9.125rem 0  9.25rem 23rem;
@@ -862,59 +875,6 @@ ul{
   font-size: 1rem;
   line-height: 0rem;
   color: #333;
-}
-/*  产品优势  第二部分 */
-.oneTwo{
-  height: 37rem;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding-top:4rem;
-  background-image: url(../../../../assets/img/pro-allnet/show/detail-banner2.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.oneTwo>p{
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 5rem;
-}
-.oneTwo .oneTwoCard{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.oneTwo .oneTwoCard .twoCardLi{
-  width: 11rem;
-  height: 13.6rem;
-  padding:3.125rem 2rem 3.125rem 2rem;
-  border: solid .125rem transparent;
-}
-.oneTwo .oneTwoCard .twoCardLi img{
-}
-.oneTwo .oneTwoCard .twoCardLi:hover{
-  border-radius: 1rem;
-  border: solid .125rem #ffffff;
-}
-.oneTwo .oneTwoCard .twoCardLiText{
-  margin-top: 3.6rem;
-  width: 13.75rem;
-  height: 18.375rem;
-  color: #ffffff;
-  font-size: .875rem;
-  letter-spacing: .0625rem;
-  text-align: left;
-}
-.oneTwo .oneTwoCard .twoCardLiText p:first-child{
-  font-size: 1.25rem;
-  letter-spacing: .125rem;
-  margin-bottom: 1.1875rem;
-}
-.oneTwo .oneTwoCard .twoCardLiText p:nth-child(2){
-  margin-bottom: 1rem;
-}
-.oneTwo .oneTwoCard .twoCardLiText p:nth-child(3){
-  margin-bottom: 1rem;
 }
 /* 产品优势  第三部分 */
 .oneThree{
@@ -1117,6 +1077,9 @@ ul{
 .sixCont .informaRightBtn:hover{
   color:#02004b;
 }
+.sixCont .OnNoformRightBtn{
+  line-height: 1.125rem;
+}
 /* 产品报价 价格部分 */
 .two .twoPrice{
   margin: 0 auto;
@@ -1189,6 +1152,9 @@ ul{
   color: #ff0000;
   border: solid .0625rem #ff0000;
   opacity: 0.64;
+}
+.Jgzx{
+  cursor:pointer;
 }
 /* 产品功能 功能模块 */
 .three{
@@ -1437,7 +1403,6 @@ ul{
 }
 .fourSuccessNo1 .oneOnPadding{
   margin-top: 3.75rem;
-  margin-left: 2rem;
 }
 .onNoThreeListItem{
   width:19.375rem;

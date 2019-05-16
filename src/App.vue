@@ -33,7 +33,7 @@
                   <el-col class="FGXfff"></el-col>
                   <el-col :span="3" class="CPnth2">
                     <el-row>
-                      <el-col :span="20" class="titleOne">SEO优化推广</el-col>
+                      <el-col :span="20" class="titleOne"><router-link to="/seoZation">SEO优化推广</router-link></el-col>
                       <el-col :span="24" class="titleTwo">微信小程序定制开发</el-col>
                       <el-col :span="24" class="titleTwo">APP定时开发</el-col>
                     </el-row>

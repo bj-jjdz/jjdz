@@ -19,6 +19,7 @@ import proAllnetBrand from '@/components/offcial/pro/pro-allnet/pro-allnet-brand
 import PackageOffer from '@/components/offcial/pro/PackageOffer'
 import GroupsShow from '@/components/offcial/Groups/Groups-allnet/Groups-show'
 import seoZation from '@/components/offcial/seo/seoZation'
+import app from '@/components/offcial/app/app'
 // import test from '@/components/backstage/test'
 
 Vue.use(Router)
@@ -125,6 +126,11 @@ export default new Router({
       path: '/seoZation',
       name: ' seoZation',
       component: seoZation
+    },
+    {
+      path: '/app',
+      name: ' app',
+      component: app
     }
   ]
 })

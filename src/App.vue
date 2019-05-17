@@ -35,7 +35,7 @@
                     <el-row>
                       <el-col :span="20" class="titleOne"><router-link to="/seoZation">SEO优化推广</router-link></el-col>
                       <el-col :span="24" class="titleTwo">微信小程序定制开发</el-col>
-                      <el-col :span="24" class="titleTwo">APP定时开发</el-col>
+                      <el-col :span="24" class="titleTwo"><router-link to="/app">APP定时开发</router-link></el-col>
                     </el-row>
                   </el-col>
                   <el-col class="FGXfff"></el-col>

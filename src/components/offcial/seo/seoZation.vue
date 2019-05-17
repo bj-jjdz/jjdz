@@ -456,15 +456,14 @@ export default {
         return
       }
       that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Need/NeedAdd', qs.stringify(data)).then(function (res) {
-        console.log('提交了', res)
         if (res.data.state === '200') {
           that.$message({
             type: 'success',
             message: '您的需求已经发送，请耐心等待专员联系您'
           })
-          that.form.mobile = ''
-          that.form.text = ''
-          that.form.company = ''
+          that.ruleForm.username = ''
+          that.ruleForm.phone = ''
+          that.ruleForm.demand = ''
         } else if (res.data.state === '500') {
           that.$message.error('服务内部错误,请联系我们')
         }

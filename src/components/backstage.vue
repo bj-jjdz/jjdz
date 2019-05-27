@@ -66,7 +66,7 @@ export default {
 .backStage{
   width: 100%;
   min-height: calc(100% - 14rem);
-  height: 43.97rem;
+  height: 53.97rem;
 }
 .tree-icon {
   display: inline-block;

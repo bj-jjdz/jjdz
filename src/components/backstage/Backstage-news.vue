@@ -24,8 +24,14 @@
       <div class="backBannerTable">
           <template>
             <el-table :data="tableData" border style="width: 100% max-height:600">
+              <el-table-column prop="cover_img" label="缩略图" min-width="15%" align="center">
+                <template slot-scope="scope">
+                  <img :src="scope.row.cover_img" width="80" height="60">
+                </template>
+              </el-table-column>
               <el-table-column prop="title" label="咨询标题" min-width="15%"></el-table-column>
               <el-table-column prop="type" label="所属分类" min-width="5%"></el-table-column>
+              <el-table-column prop="brief" label="新闻简介" min-width="20%"></el-table-column>
               <el-table-column prop="new_content" label="内容概览" min-width="30%" class="contentText"></el-table-column>
               <el-table-column prop="add_time" label="发布时间" min-width="10%"></el-table-column>
               <el-table-column prop="name" label="浏览量" min-width="5%"></el-table-column>
@@ -69,6 +75,9 @@
               <template>
                 <el-input v-model="newsTitle" style="margin-bottom:0.6rem" placeholder="请填写新闻标题" clearable></el-input>
               </template>
+              <template>
+                <el-input v-model="newsConter" style="margin-bottom:0.6rem" placeholder="请填写新闻简介" clearable></el-input>
+              </template>
               <quill-editor
                 v-model="contentText"
                 ref="myQuillEditor"
@@ -80,6 +89,15 @@
                 {{str}}
               </div>
             </div>
+              <el-upload
+                class="avatar-uploader"
+                action="http://39.97.175.16/jiujiangdongzhu/Admin/News/add_cover_img"
+                :show-file-list="false"
+                :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload">
+                <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
             <template>
               <el-button @click="dialogFormShow = false">取 消</el-button>
               <el-button type="primary" @click="addNewsBtn">确 定</el-button>
@@ -103,6 +121,21 @@
               <template>
                 <el-input v-model="newsTitle" style="margin-bottom:0.6rem" placeholder="请填写新闻标题" clearable></el-input>
               </template>
+              <template>
+                <el-upload
+                  class="avatar-uploader"
+                  action='http://39.97.175.16/jiujiangdongzhu/Lunbo/add_lunbo.html'
+                  :show-file-list="false"
+                  :before-upload="beforeAvatarUpload"
+                  :on-success="handleAvatarSuccess"
+                  >
+                  <img v-if="imageUrlS" :src="imageUrlS" class="avatar">
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
+              </template>
+              <template>
+                <el-input v-model="newsConter" style="margin-bottom:0.6rem" placeholder="请填写新闻简介" clearable></el-input>
+              </template>
               <quill-editor
                 v-model="contentText"
                 ref="myQuillEditor"
@@ -116,7 +149,7 @@
             </div>
             <template>
               <el-button @click="dialogFormShow = false">取 消</el-button>
-              <el-button type="primary" @click="addNewsBtn">确 定</el-button>
+              <el-button type="primary" @click="addNewsBtnUpdata">确 定</el-button>
             </template>
           </el-dialog>
       </div>
@@ -187,6 +220,7 @@ export default {
       newsTypeText: '',
       // newsTitle 新闻标题
       newsTitle: '',
+      newsConter: '',
       // newsFrom 新闻来源
       newsFrom: '',
       searchTime: '',
@@ -202,7 +236,12 @@ export default {
       // 总条数
       totalCount: 1,
       fuzzySearchText: '',
-      newsTypeId: ''
+      newsTypeId: '',
+      cover_img: '',
+      imgID: '',
+      imageUrl: '',
+      imageUrlS: '',
+      user_id: ''
     }
   },
   created () {
@@ -228,6 +267,7 @@ export default {
       console.log('添加按钮', this)
       this.dialogFormShow = true
       this.newsTitle = ''
+      this.newsConter = ''
       this.newsTypeText = ''
       this.contentText = ''
       this.newsFrom = ''
@@ -240,6 +280,10 @@ export default {
     onEditorFocus () {},
     // 内容改变事件
     onEditorChange () {},
+    // console.log('添加图片按钮触发')
+    addPhotoBtn () {
+      this.dialogFormShow = true
+    },
     // 转码
     escapeStringHTML (str) {
       str = str.replace(/&lt;/g, '<')
@@ -319,6 +363,7 @@ export default {
               type: 'success',
               message: '删除成功!'
             })
+            this.getNewsList()
           } else if (res.data.code === '201') {
             that.$message.error({message: '删除失败!'})
           } else if (res.data.code === '202') {
@@ -334,17 +379,64 @@ export default {
         })
       })
     },
+    handleAvatarSuccess (res, file) {
+      // debugger
+      console.log('file', file)
+      console.log('res', res)
+      if (res.code === '200') {
+        this.fileImgIds = res
+        this.imageUrl = URL.createObjectURL(file.raw)
+        this.imgFalsePath = res
+        this.imgList = file
+        this.imgID = res.img_id
+        this.$message({
+          type: 'success',
+          message: '图片添加成功'
+        })
+      } else if (res.code === '201') {
+        this.$message({
+          type: 'fail',
+          message: '图片添加失败'
+        })
+      } else if (res.code === '202') {
+        this.$message({
+          type: 'fail',
+          message: '图片上传失败'
+        })
+      }
+    },
+    // 上传图片
+    beforeAvatarUpload (file) {
+      // debugger;
+      console.log(file, '文件')
+      this.upload_files = file
+      const isPNG = file.type === 'image/png'
+      const isGIF = file.type === 'image/gif'
+      const isJPEG = file.type === 'image/jpeg'
+      const isJPG = file.type === 'image/jpg'
+      const isLt5M = file.size / 1024 / 1024 < 5
+      if (!isJPG && !isPNG && !isGIF && !isJPEG) {
+        this.$message.error('上传的图片只能是 JPG、PNG和gif 格式!')
+      }
+      if (!isLt5M) {
+        this.$message.error('上传的图片大小不能超过 5MB!')
+      }
+      return (isJPG || isPNG || isGIF || isJPEG) && isLt5M
+    },
     // 上传内容
     addNewsBtn () {
       let that = this
       const newsTitle = that.newsTitle
+      const newsConter = that.newsConter
       const newsTypeText = that.newsTypeText
       const contentText = that.contentText
       const newsFrom = that.newsFrom
-      if (newsTitle === '' || newsTypeText === '' || contentText === '' || newsFrom === '') {
+      const imageUrl = that.imageUrl
+      const imgID = that.imgID
+      if (newsTitle === '' || newsTypeText === '' || contentText === '' || newsFrom === '' || newsConter === '' || imageUrl === '') {
         this.$message.error({message: '每一项都不能为空!'})
       }
-      that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/News/add_news', qs.stringify({'title': newsTitle, 'type_id': newsTypeText, 'content': contentText, 'new_source': newsFrom})).then(function (res) {
+      that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/News/add_news', qs.stringify({'title': newsTitle, 'type_id': newsTypeText, 'content': contentText, 'new_source': newsFrom, 'brief': newsConter, 'cover_img': imageUrl, 'img_id': imgID})).then(function (res) {
         console.log('上传按钮按了之后', res)
         if (res.data.code === '200') {
           that.$message({
@@ -352,6 +444,7 @@ export default {
             message: '添加新闻成功!'
           })
           that.dialogFormShow = false
+          that.dialogFormShowTwo = false
           that.getNewsList()
         } else if (res.data.code === '201') {
           that.$message.error({message: '添加失败!'})
@@ -371,6 +464,7 @@ export default {
       this.dialogFormShowTwo = true
       let that = this
       const id = row.id
+      this.user_id = row.id
       that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/News/newinfo.html', qs.stringify({'id': id})).then(function (res) {
         console.log('nigeide', res)
         if (res.data.code === '200') {
@@ -379,10 +473,46 @@ export default {
           that.newsTitle = res.data.data.title
           that.contentText = res.data.data.new_content
           that.newsFrom = res.data.data.new_source
-          console.log(that.newsTypeText, that.newsType.value, that.newsTitle, that.contentText, that.newsFrom)
+          that.imageUrlS = res.data.data.cover_img
         } else if (res.data.code === '201') {
           that.$message.error({message: '添加失败!'})
           that.dialogFormShowTwo = false
+        }
+      })
+    },
+    // 修改内容
+    addNewsBtnUpdata () {
+      let that = this
+      const newsTitle = that.newsTitle
+      const newsConter = that.newsConter
+      const newsTypeText = that.newsTypeText
+      const contentText = that.contentText
+      const newsFrom = that.newsFrom
+      const imageUrl = that.imageUrl
+      const imgID = that.imgID
+      const id = that.user_id
+      if (newsTitle === '' || newsTypeText === '' || contentText === '' || newsFrom === '' || newsConter === '' || imageUrl === '') {
+        this.$message.error({message: '每一项都不能为空!'})
+      }
+      that.$axios.post(this.httpUrlRSS + 'jiujiangdongzhu/News/update_new', qs.stringify({'title': newsTitle, 'type_id': newsTypeText, 'content': contentText, 'new_source': newsFrom, 'brief': newsConter, 'cover_img': imageUrl, 'img_id': imgID, 'id': id})).then(function (res) {
+        console.log('上传按钮按了之后', res)
+        if (res.data.code === '200') {
+          that.$message({
+            type: 'success',
+            message: res.data.message
+          })
+          that.dialogFormShow = false
+          that.dialogFormShowTwo = false
+          that.getNewsList()
+        } else if (res.data.code === '201') {
+          that.$message.error({message: res.data.message})
+          that.dialogFormShow = false
+        } else if (res.data.code === '202') {
+          that.$message.error({message: res.data.message})
+          that.dialogFormShow = false
+        } else if (res.data.code === '203') {
+          that.$message.error({message: res.data.message})
+          that.dialogFormShow = false
         }
       })
     }
@@ -420,6 +550,9 @@ export default {
 .backStageNews .backBannerTable .tableImg{
   max-width: 100px;
   max-height: 100px;
+  text-align: center;
+  display: block;
+  margin-left: 40%;
 }
 .backStageNews .backBannerTableAdd{
   margin-bottom: 1rem;
@@ -433,6 +566,20 @@ export default {
 .backStageNews .ql-toolbar .ql-snow{
   border:1px solid #ddd;
 }
+.dynamicBigImg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+}
+.dynamicBigImg .contentImg {
+  margin-left: 0%;
+}
 </style>
 <style>
 .backStageNews .fuzzySearch .el-button{
@@ -443,7 +590,7 @@ export default {
   color: #409EFF;
 }
 .backStageNews .el-table{
-  max-height:520px;
+  max-height:620px;
 }
 /* .el-tooltip__popper{
   max-width: 50%;
@@ -456,5 +603,28 @@ export default {
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
+}
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+.avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
 }
 </style>

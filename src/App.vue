@@ -21,134 +21,99 @@
             <template slot="title">产品</template>
               <el-card class="box-card">
                 <el-row>
-                  <el-col :span="2" :offset="7">
-                    <el-row>
-                      <el-col :span="24" class="itemOne"><router-link to='/proAllnetShow'>响应式展示门户</router-link></el-col>
-                      <el-col :span="24" class="itemOne"><router-link to='/proAllnetResponse'>全网响应式门户</router-link></el-col>
-                      <el-col :span="24" class="itemOne"><router-link to="/proAllnetBrand">品牌响应式门户</router-link></el-col>
-                      <el-col :span="24" class="itemOne"><router-link to="/GroupsShow">集团站群</router-link></el-col>
-                      <el-col :span="24" class="itemOne">电商门户</el-col>
+                  <el-col :span="2" :offset="5">
+                    <el-row class="textCenter">
+                      <el-col :span="24" class="titleOne">网站建设</el-col>
+                      <el-col :span="24" class="itemOne TextHover"><router-link to='/proAllnetShow'>响应式展示门户</router-link></el-col>
+                      <el-col :span="24" class="itemOne TextHover"><router-link to='/proAllnetResponse'>全网响应式门户</router-link></el-col>
+                      <el-col :span="24" class="itemOne TextHover"><router-link to="/proAllnetBrand">品牌响应式门户</router-link></el-col>
+                      <el-col :span="24" class="itemOne p-r-10 TextHover"><router-link to="/GroupsShow">集团站群</router-link></el-col>
+                      <el-col :span="24" class="itemOne p-r-10 TextHover"><router-link to="/proAllnetEcommerce">电商门户</router-link></el-col>
                     </el-row>
                   </el-col>
                   <el-col class="FGXfff"></el-col>
-                  <el-col :span="3" class="CPnth2">
-                    <el-row>
-                      <el-col :span="20" class="titleOne"><router-link to="/seoZation">SEO优化推广</router-link></el-col>
-                      <el-col :span="24" class="titleTwo">微信小程序定制开发</el-col>
-                      <el-col :span="24" class="titleTwo"><router-link to="/app">APP定时开发</router-link></el-col>
+                  <el-col :span="4" class="CPnth2">
+                    <el-row class="textCenter">
+                      <div class="p-l-100">
+                        <el-col :span="20" class="titleOne m-l-20 TextHover"><router-link to="/seoZation">SEO优化推广</router-link></el-col>
+                        <el-col :span="24" class="titleOne TextHover p-10"><router-link to="/proAllnetWechat">微信小程序定制开发</router-link></el-col>
+                      </div>
                     </el-row>
                   </el-col>
                   <el-col class="FGXfff"></el-col>
-                  <el-col :span="2" :offset="0" class="CPnth3">
-                    <el-row>
-                      <el-col :span="24" class="titleOne">域名注册</el-col>
-                      <el-col :span="24" class="titleTwo">
-                        虚拟主机
-                      </el-col>
-                      <el-col :span="24" class="titleTwo">
-                        企业邮箱
-                      </el-col>
+                  <el-col :span="4" :offset="0" class="CPnth3">
+                    <el-row class="textCenter">
+                      <div style="margin-left:3rem;">
+                        <el-col :span="24" class="titleOne TextHover"><router-link to="/app">APP定时开发</router-link></el-col>
+                        <el-col :span="24" class="titleOne TextHover">域名注册</el-col>
+                      </div>
                     </el-row>
                   </el-col>
                 </el-row>
               </el-card>
           </el-submenu>
           <el-submenu index="3">
-            <template slot="title">案例</template>
-              <el-card class="box-card">
+            <template slot="title">行业解决方案</template>
+              <el-card class="box-card h-200">
                 <el-row>
-                  <el-col :span="2" :offset="7">
+                  <el-col :span="3" :offset="8" :pull="1">
                     <el-row>
-                      <el-col :span="24" class="itemOne">机械行业</el-col>
-                      <el-col :span="24" class="itemOne">装修行业</el-col>
-                      <el-col :span="24" class="itemOne">培训行业</el-col>
-                      <el-col :span="24" class="itemOne">酒店民俗</el-col>
-                      <el-col :span="24" class="itemOne">IT数码</el-col>
-                      <el-col :span="24" class="itemOne">装饰建材</el-col>
-                      <el-col :span="24" class="itemOne">汽配行业</el-col>
+                      <el-col :span="24" class="title2 TextHover2"><router-link to="/solutionCase" class="dd1">机械行业解决方案</router-link></el-col>
+                      <el-col :span="24" class="title2 TextHover2"><router-link to="/OnlineRetailers" class="dd1">电商零售解决方案</router-link></el-col>
                     </el-row>
                   </el-col>
-                  <el-col :span="3" :offset="1">
+                  <el-col class="FGXfff3" :span="1"></el-col>
+                  <el-col :span="4" :push="1">
                     <el-row>
-                      <el-col :span="20" class="itemOne">食品加工</el-col>
-                      <el-col :span="24" class="itemOne">家具制造</el-col>
-                      <el-col :span="24" class="itemOne">服装鞋帽</el-col>
-                      <el-col :span="24" class="itemOne">五金配件</el-col>
-                      <el-col :span="24" class="itemOne">餐饮加盟</el-col>
-                      <el-col :span="24" class="itemOne">家居行业</el-col>
-                    </el-row>
-                  </el-col>
-                  <el-col :span="2">
-                    <el-row>
-                      <el-col :span="24" class="itemOne">电线电缆</el-col>
-                      <el-col :span="24" class="itemOne">化工行业</el-col>
-                      <el-col :span="24" class="itemOne">纺织行业</el-col>
-                      <el-col :span="24" class="itemOne">新农业</el-col>
-                      <el-col :span="24" class="itemOne">电力电器</el-col>
-                      <el-col :span="24" class="itemOne">仪表仪器</el-col>
+                      <el-col :span="24" class="title2 TextHover2"><router-link to="/solutionCaseEducation" class="dd1">教育行业解决方案</router-link></el-col>
+                      <el-col :span="24" class="title2 TextHover2"><router-link to="/RestaurantSolution" class="dd1">餐饮行业解决方案</router-link></el-col>
                     </el-row>
                   </el-col>
                 </el-row>
               </el-card>
           </el-submenu>
           <el-submenu index="4">
-            <template slot="title">解决方案</template>
-              <el-card class="box-card">
+            <template slot="title">行业案例</template>
+              <el-card class="box-card h-231">
                 <el-row>
-                  <el-col :span="2" :offset="9">
+                  <el-col :span="2" :offset="9" pull="1">
                     <el-row>
-                      <el-col :span="24" class="itemOne">电商行业</el-col>
-                      <el-col :span="24" class="itemOne">制造业</el-col>
+                      <el-col :span="24" class="title2 TextHover3"><router-link :to="{path:'/caseMechanics', query:{industry:4}}" class="dd1">机械行业</router-link></el-col>
+                      <el-col :span="24" class="title2 TextHover3"><router-link :to="{path:'/caseFood', query:{industry:1}}" class="dd1">餐饮服务</router-link></el-col>
+                      <el-col :span="24" class="title2 TextHover3"><router-link :to="{path:'/caseHotel', query:{industry:6}}" class="dd1">酒店民俗</router-link></el-col>
                     </el-row>
                   </el-col>
-                  <el-col :span="3" :offset="1">
+                  <el-col class="FGXfff2"></el-col>
+                  <el-col :span="2" :offset="1">
                     <el-row>
-                      <el-col :span="20" class="itemOne">餐饮业</el-col>
-                      <el-col :span="24" class="itemOne">装饰业</el-col>
+                      <el-col :span="15" class="title2 TextHover3"><router-link :to="{path:'/caseSale', query:{industry:2}}" class="dd1">电商零售</router-link></el-col>
+                      <el-col :span="15" class="title2 TextHover3"><router-link :to="{path:'/caseEducation', query:{industry:5}}" class="dd1">教育培训</router-link></el-col>
+                      <el-col :span="15" class="title2 TextHover3"><router-link :to="{path:'/caseInstrument', query:{industry:7}}" class="dd1">仪器仪表</router-link></el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col class="FGXfff2"></el-col>
+                  <el-col :span="2" :offset="1">
+                    <el-row>
+                      <el-col :span="24" class="title2 TextHover"><router-link :to="{path:'/caseDecoration', query:{industry:8}}" class="dd1">装饰行业</router-link></el-col>
+                      <el-col :span="24" class="title2 TextHover"><router-link :to="{path:'/caseElectr', query:{industry:3}}" class="dd1">电子电工</router-link></el-col>
                     </el-row>
                   </el-col>
                 </el-row>
               </el-card>
           </el-submenu>
-          <el-submenu index="5">
-            <template slot="title">关于我们</template>
-              <el-card class="box-card">
-                <el-row>
-                  <el-col :span="2" :offset="9">
-                    <el-row>
-                      <el-col :span="24" class="titleOne">企业概况</el-col>
-                      <el-col :span="24" class="itemOne">关于我们</el-col>
-                      <el-col :span="24" class="itemOne">企业文化</el-col>
-                      <el-col :span="24" class="itemOne">发展历程</el-col>
-                      <el-col :span="24" class="itemOne">法律隐私</el-col>
-                    </el-row>
-                  </el-col>
-                  <el-col :span="3" :offset="1">
-                    <el-row>
-                      <el-col :span="24" class="titleOne">新闻中心</el-col>
-                      <el-col :span="24" class="itemOne">新闻公告</el-col>
-                      <el-col :span="24" class="itemOne">媒体报道</el-col>
-                      <el-col :span="24" class="itemOne">社会公益</el-col>
-                      <el-col :span="24" class="itemOne">视频中心</el-col>
-                    </el-row>
-                  </el-col>
-                  <el-col :span="3">
-                    <el-row>
-                      <el-col :span="24" class="titleOne">联系我们</el-col>
-                      <el-col :span="24" class="itemOne">联系我们</el-col>
-                      <el-col :span="24" class="itemOne">全国网点</el-col>
-                      <el-col :span="24" class="itemOne">工作机会</el-col>
-                      <el-col :span="24" class="itemOne">中国数码</el-col>
-                    </el-row>
-                  </el-col>
-                </el-row>
-              </el-card>
-          </el-submenu>
-          <el-menu-item index="6"><router-link to='/backstage' class="dd1">联系我们</router-link></el-menu-item>
+          <el-menu-item index="5">
+            <router-link to="/Journalism" class="dd1">新闻资讯</router-link>
+          </el-menu-item>
+          <el-menu-item index="6">
+            <router-link to="/aboutUs" class="dd1">关于我们</router-link>
+          </el-menu-item>
+          <el-menu-item index="7">
+            <router-link to='/contactUs' class="dd1">联系我们</router-link>
+          </el-menu-item>
         </el-menu>
       </el-col>
       <!-- 登陆注册 -->
-      <el-col :span="2" class="title_nav_zj" :offset="1">
+      <!-- <el-col :span="2" class="title_nav_zj" :offset="1">
         <div v-if='loginIds == 2' class="userName_id">
           欢迎 <a href="javascript:;">{{this.usernames}}</a> 登陆
           <el-button type="text" @click='getout'>注销</el-button>
@@ -161,7 +126,7 @@
             <router-link to="/register" class="login_in_img">注册</router-link>
           </div>
         </div>
-      </el-col>
+      </el-col> -->
     </el-row>
     <router-view/>
     <!-- footer -->
@@ -176,13 +141,13 @@
             <a href="javascript:;">网站建设</a>
           </el-col>
           <el-col :span="24" class="footer_p-item">
-            <a href="javascript:;">SEO优化推广</a>
+            <router-link to="/seoZation">SEO优化推广</router-link>
           </el-col>
           <el-col :span="24" class="footer_p-item">
-            <a href="javascript:;">微信小程序定制开发</a>
+            <router-link to="/proAllnetWechat">微信小程序定制开发</router-link>
           </el-col>
           <el-col :span="24" class="footer_p-item">
-            <a href="javascript:;">App定制开发</a>
+            <router-link to="/app">App定制开发</router-link>
           </el-col>
           <el-col :span="24" class="footer_p-item">
             <a href="javascript:;">域名注册服务</a>
@@ -266,7 +231,7 @@
 </template>
 
 <script>
-import qs from 'qs'
+// import qs from 'qs'
 export default {
   name: 'App',
   data () {
@@ -277,29 +242,29 @@ export default {
       activeIndex2: '1'
     }
   },
-  created () {
-    console.log(window.localStorage, 'created..window.localStorage')
-    let that = this
-    that.loginIds = window.localStorage.loginId
-    that.usernames = window.localStorage.username
-    let data = {
-      mobile: window.localStorage.username,
-      password: window.localStorage.password,
-      state: window.localStorage.value
-    }
-    if (window.localStorage.username === '' || window.localStorage.password === '' || window.localStorage.value === '') {
-      return
-    }
-    that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Login/check_user', qs.stringify(data)).then(function (res) {
-      if (res.data.state === '200') {
-        that.loginIds = window.localStorage.loginId
-        that.usernames = window.localStorage.username
-        console.log(localStorage.loginId, 'localStorage.loginId')
-        console.log(localStorage.username, 'localStorage.username')
-        console.log(that.loginIds, '???????')
-      }
-    })
-  },
+  // created () {
+  //   console.log(window.localStorage, 'created..window.localStorage')
+  //   let that = this
+  //   that.loginIds = window.localStorage.loginId
+  //   that.usernames = window.localStorage.username
+  //   let data = {
+  //     mobile: window.localStorage.username,
+  //     password: window.localStorage.password,
+  //     state: window.localStorage.value
+  //   }
+  //   if (window.localStorage.username === '' || window.localStorage.password === '' || window.localStorage.value === '') {
+  //     return
+  //   }
+  //   that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Login/check_user', qs.stringify(data)).then(function (res) {
+  //     if (res.data.state === '200') {
+  //       that.loginIds = window.localStorage.loginId
+  //       that.usernames = window.localStorage.username
+  //       console.log(localStorage.loginId, 'localStorage.loginId')
+  //       console.log(localStorage.username, 'localStorage.username')
+  //       console.log(that.loginIds, '???????')
+  //     }
+  //   })
+  // },
   methods: {
     autoSetScale () {
       let zoom = (window.innerHeight / 800).toFixed(3)
@@ -311,8 +276,6 @@ export default {
     clickLogin () {
       this.username = this.$route.params.usernames
       this.loginIds = this.$route.params.loginIds
-      console.log(this.loginIds, 'this.loginId222')
-      console.log(this.username, 'username2222223333')
     },
     getout () {
       localStorage.clear()
@@ -348,7 +311,7 @@ export default {
   overflow-x:hidden;
 }
 .el-menu.el-menu--horizontal{
-  border:0px;
+  border:0px!important;
 }
 .el-menu--horizontal{
   width:100%;
@@ -360,14 +323,14 @@ export default {
 }
 /* 导航条 */
 .el-card{
-  border:0rem;
-  background-color:#000;
-  border-radius: 0px;
-  width:100%;
-  height:25rem;
-  color:#ffffff;
-  font-family: PingFang-SC-Medium;
-  font-size:.875rem;;
+  border:0rem!important;
+  background-color:#000!important;
+  border-radius: 0px!important;
+  width:100%!important;
+  height:25rem!important;
+  color:#ffffff!important;
+  font-family: PingFang-SC-Medium!important;
+  font-size:.875rem!important;
 }
 .el-card .titleOne{
   font-size: 1.25rem;
@@ -380,12 +343,44 @@ export default {
 }
 .el-card .itemOne{
   line-height: 2.5rem;
+  font-size: .875rem;
+}
+.TextHover{
+  border:1px solid transparent;
+  border-radius: .375rem;
+}
+.TextHover:hover{
+  border:1px solid #ffffff;
+  border-radius: .375rem;
+}
+.TextHover2{
+  border:1px solid transparent;
+  border-radius: .375rem;
+}
+.TextHover2:hover{
+  border:1px solid #ffffff;
+  border-radius: .375rem;
+}
+.TextHover3{
+  border:1px solid transparent;
+  border-radius: .375rem;
+}
+.TextHover3:hover{
+  border:1px solid #ffffff;
+  border-radius: .375rem;
 }
 .el-card .FGXfff{
   width:1px;
   height:329px;
-  background-color:#fff;
+  background-color:#fff!important;
   margin-top:1rem;
+  margin-left:8.625rem;
+}
+.el-card .FGXfff2{
+  width:.125rem;
+  height:6.8125rem;
+  background-color: #ffffff;
+  margin-top: 1.4%;
 }
 .el-card .CPnth2{
   margin-left:3rem;
@@ -395,10 +390,13 @@ export default {
   margin-left:3rem;
 }
 .title_nav{
-  background:#333333;
+  background:#333333!important;
   width: 100%;
   height:6.375rem;
   vertical-align: bottom;
+}
+.textCenter{
+  text-align: center;
 }
 .title_nav .el-submenu__title, .title_nav .el-menu-item{
   font-size: 1rem !important;
@@ -421,7 +419,7 @@ export default {
 }
 .title_nav_zj{
   display: inline-block;
-  color:#fff;
+  color:#fff!important;
 }
 .title_nav_zj div{
   display: inline-block;
@@ -528,7 +526,28 @@ export default {
     letter-spacing: 0px;
     color: #999999;
 }
+.title2{
+  font-size: 1.25rem;
+  letter-spacing: 0px;
+  color:#fefefe;
+  line-height: 3.5rem;
+  text-align: center;
+}
 .el-scrollbar__wrap { overflow-x: hidden; }
 a {text-decoration: none;color:#fff;}
 .router-link-active {text-decoration: none;}
+.p-l-30{padding-left:1.875rem;}
+.p-r-10{padding-right:.625rem;}
+.p-l-100{padding-left:6.25rem;}
+.m-l-20{margin-left:1.25rem;}
+.p-t-b-10{padding-top:10px;padding-bottom: 10px;}
+.p-l-r-10{padding-left: 10px;padding-right:10px;}
+.h-231{height: 14.4375rem !important;}
+.h-200{height:10.5rem !important;}
+.FGXfff3{
+  width:.125rem !important;
+  height:6.8125rem;
+  background-color: #ffffff;
+  margin-top: 0.5%;
+}
 </style>

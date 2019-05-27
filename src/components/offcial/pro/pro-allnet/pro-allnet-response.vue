@@ -210,7 +210,6 @@
                       </el-row>
                     </div>
                   </div>
-                  <el-button type="primary" class="showMore">查看更多</el-button>
                 </div>
                 <div class="oneFore clearfix">
                   <p class="title">售后服务</p>
@@ -247,7 +246,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -335,7 +334,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
                     <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
@@ -358,7 +357,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
                     <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
@@ -381,7 +380,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
                     <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
@@ -404,7 +403,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                 </div>
                 <div class="oneFore clearfix">
@@ -442,7 +441,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -666,7 +665,7 @@
                       </el-row>
                     </div>
                   </div>
-                  <el-button type="primary" class="showMore">查看更多</el-button>
+                  <!-- <el-button type="primary" class="showMore">查看更多</el-button> -->
                 </div>
                 <div class="oneFore clearfix">
                   <p class="title">售后服务</p>
@@ -703,7 +702,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -773,11 +772,11 @@
                   <div class="fourOneText">
                     <div><img style="width: 10.75rem;height: 2.875rem;" src="../../../../assets/img/pro-allnet/response/four-logo-1.png" alt=""></div>
                     <div class="linkA"><a href="http://www.sunuan.cc">http://www.sunuan.cc</a></div>
-                    <div class="fourTextCont">2013年  苏暖前公司汇科成立，销售额158万  服务52位客户<br>
-                                              2014年  与世界500强HITACHI合作，在南通成立直营店，专注于家用中央空调市场，销售额858万，服务262位客户<br>
-                                              2015年  成立第一家苏暖舒适家体验馆，融合冷暖、空气、水、智能，致力于为客户打造舒适家，销售额1587万，服务486位客户<br>
-                                              2016年  3.0施工类精工技术研发成功，400独立售后团队成立，全年客户满意度98.3%，投诉率为零，客户推荐并成功占全年总客户数量的46.3%。销售额3286万，单年服务客户超过1000位。成功注册苏暖商标品牌。<br>
-                                              2017年  苏暖海安分公司成立，4.0施工技术研发成功，售后准点率100%，全年客户满意度99.4%，投诉率为零，客户推荐并成功占全年总客户数量的62.5%，销售额7220万，服务总客户累计超过4000户，南通地区每三套新房有一套使用苏暖服务。<br>
+                    <div class="fourTextCont">2013年  苏暖前公司汇科成立，销售额158万  服务52位客户<br>&#12288;&#12288;
+                                              2014年  与世界500强HITACHI合作，在南通成立直营店，专注于家用中央空调市场，销售额858万，服务262位客户<br>&#12288;&#12288;
+                                              2015年  成立第一家苏暖舒适家体验馆，融合冷暖、空气、水、智能，致力于为客户打造舒适家，销售额1587万，服务486位客户<br>&#12288;&#12288;
+                                              2016年  3.0施工类精工技术研发成功，400独立售后团队成立，全年客户满意度98.3%，投诉率为零，客户推荐并成功占全年总客户数量的46.3%。销售额3286万，单年服务客户超过1000位。成功注册苏暖商标品牌。<br>&#12288;&#12288;
+                                              2017年  苏暖海安分公司成立，4.0施工技术研发成功，售后准点率100%，全年客户满意度99.4%，投诉率为零，客户推荐并成功占全年总客户数量的62.5%，销售额7220万，服务总客户累计超过4000户，南通地区每三套新房有一套使用苏暖服务。<br>&#12288;&#12288;
                                               2018年  我们用心前行，致力于舒适家行业，打造高品质的舒适家居生活。</div>
                   </div>
                 </div>
@@ -785,9 +784,9 @@
                   <div class="fourOneText">
                     <div><img style="width: 9.125rem;height: 3.5rem;" src="../../../../assets/img/pro-allnet/response/four-logo-2.png" alt=""></div>
                     <div class="linkA"><a href="http://www.noubel.cn">http://www.noubel.cn</a></div>
-                    <div class="fourTextCont">诺贝家居创立于1978年，专业致力于为客户创造有艺术气质的家，从事中高端整体家居的研发、生产和销售。<br>
-                                              诺贝家居以“成为受人尊重的百年企业”为愿景，在践行“创造价值、厚德感恩、互信共赢”核心价值观的过程中，由中国迅速扩张至全球，旗舰店遍布北京、上海、广州、深圳等国内一二三线城市，以及加拿大、澳大利亚、俄罗斯、迪拜、阿联酋、沙特等国家和地区。<br>
-                                              作为当代美学家居运营商，诺贝有着精耕中高端家居市场的品牌战略规划，旗下拥有“宫廷壹号”、“镁作”、“M&E”等多个品牌，构成覆盖家居品类全风格的品牌矩阵。<br>
+                    <div class="fourTextCont">诺贝家居创立于1978年，专业致力于为客户创造有艺术气质的家，从事中高端整体家居的研发、生产和销售。<br>&#12288;&#12288;
+                                              诺贝家居以“成为受人尊重的百年企业”为愿景，在践行“创造价值、厚德感恩、互信共赢”核心价值观的过程中，由中国迅速扩张至全球，旗舰店遍布北京、上海、广州、深圳等国内一二三线城市，以及加拿大、澳大利亚、俄罗斯、迪拜、阿联酋、沙特等国家和地区。<br>&#12288;&#12288;
+                                              作为当代美学家居运营商，诺贝有着精耕中高端家居市场的品牌战略规划，旗下拥有“宫廷壹号”、“镁作”、“M&E”等多个品牌，构成覆盖家居品类全风格的品牌矩阵。<br>&#12288;&#12288;
                                               诺贝家居自成立四十年来忠于初心，始终专注于中高端家居的研发与制造，致力于为追求高品质生活的人们提供优质的产品与服务，打造健康环保，富有艺术气质的生活方式，让全球更多的家庭享受有爱、有品质的生活。</div>
                   </div>
                   <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/response/four-banner-2.png" alt=""></div>
@@ -806,7 +805,7 @@
                     <div class="linkA"><a href="http://www.sshlx.cn">http://www.sshlx.cn</a></div>
                     <div class="fourTextCont">公司成立于2015年12月，拥有员工数45人，是一个专业制作小龙虾的餐饮公司，从小龙虾养殖、配送、清洗加工及菜品制作拥有一套成熟的系统。</div>
                   </div>
-                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/show/four-banner-4.png" alt=""></div>
+                  <div style="display:inline-block"><img src="../../../../assets/img/pro-allnet/response/four-banner-4.png" alt=""></div>
                 </div>
               </div>
             </el-tab-pane>
@@ -929,7 +928,7 @@ ul{
   width: 100%;
   height: 25rem;
   box-sizing: border-box;
-  background-image: url(../../../../assets/img/pro-allnet/response/pro-allnet-banner.png);
+  background-image: url('./../../../../assets/img/pro-allnet/response/pro-allnet-banner.png');
   background-size: cover;
   text-align: left;
   padding: 9.125rem 0  9.25rem 23rem;
@@ -1192,7 +1191,7 @@ ul{
 .oneFive .fiveCont{
   margin-top: 3.5rem;
   margin-bottom: 4.375rem;
-  text-align: left;
+  text-align: center
 }
 .oneFive .oneFiveLine{
   position: relative;
@@ -1279,7 +1278,7 @@ ul{
   display: inline-block;
   width: 10rem;
   height: 3.125rem;
-  line-height: 3.125rem;
+  /* line-height: 3.125rem; */
   box-sizing: border-box;
   background-color: #fff;
   color: #333;
@@ -1327,6 +1326,9 @@ ul{
   vertical-align:top;
   display: inline-block;
 }
+.two .priceOneRight:hover ul .table1{
+  border: .0625rem solid #02004b;
+}
 .borderChange{
   border-color: #02004b;
 }
@@ -1361,6 +1363,9 @@ ul{
   color: #ff0000;
   border: solid .0625rem #ff0000;
   opacity: 0.64;
+}
+.priceOneBtn a{
+  color: #ff0000;
 }
 /* 产品功能 功能模块 */
 .three{
@@ -1620,6 +1625,7 @@ ul{
   text-align: left;
   text-indent:2em;
   line-height: 1.5rem;
+  margin-top: 1.875rem;
 }
 .four .fourTwo{
   margin-top: 5.5rem;

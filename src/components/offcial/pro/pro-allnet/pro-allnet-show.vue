@@ -84,7 +84,6 @@
                       </el-row>
                     </div>
                   </div>
-                  <el-button type="primary" class="showMore">查看更多</el-button>
                 </div>
                 <div class="oneFore clearfix">
                   <p class="title">售后服务</p>
@@ -121,7 +120,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -209,7 +208,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferOne">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
                     <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
@@ -232,10 +231,10 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferTwo">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
-                    <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
+                    <div class="priceOneLeft"><div class="leftText">尊贵型套餐</div></div>
                     <div class="priceOneRight">
                       <div class="tableCont">
                         <ul>
@@ -255,10 +254,10 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferThree">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                   <div class="priceOne">
-                    <div class="priceOneLeft"><div class="leftText">经济型套餐</div></div>
+                    <div class="priceOneLeft"><div class="leftText">尊享型套餐</div></div>
                     <div class="priceOneRight">
                       <div class="tableCont">
                         <ul>
@@ -278,7 +277,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="priceOneBtn" @click="JumpPackageOfferFour">套餐价格</div>
+                    <div class="priceOneBtn"><router-link to="/PackageOffer">价格咨询</router-link></div>
                   </div>
                 </div>
                 <div class="oneFore clearfix">
@@ -316,7 +315,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -474,7 +473,7 @@
                       </el-row>
                     </div>
                   </div>
-                  <el-button type="primary" class="showMore">查看更多</el-button>
+                  <!-- <el-button type="primary" class="showMore">查看更多</el-button> -->
                 </div>
                 <div class="oneFore clearfix">
                   <p class="title">售后服务</p>
@@ -511,7 +510,7 @@
                 </div>
                 <div class="oneFive clearfix">
                   <p class="title">建站指南</p>
-                  <div class="fiveCont">九江东注为您提供一站式建站服务：</div>
+                  <div class="fiveCont">九江东注为您提供一站式建站服务</div>
                   <div>
                     <div class="oneFiveLine">
                       <ul>
@@ -566,7 +565,7 @@
                       <div style="float: left;margin-left:20%;margin-top:2%" class="fd">
                         <el-form-item>
                           <el-button type="primary" class="informaLeftBtn" @click="informaLeftBtn">咨询价格</el-button>
-                          <el-button class="informaRightBtn" @click="informaRightBtn">现在咨询</el-button>
+                          <a href="tencent://message/?uin=1042942029&Menu=yes" class="informaRightBtn">现在咨询</a>
                         </el-form-item>
                       </div>
                     </el-form>
@@ -679,42 +678,6 @@ export default {
         }
       })
     },
-    JumpPackageOfferOne () {
-      let that = this
-      that.$router.push({
-        name: 'PackageOffer',
-        params: {
-          combo: '基础型套餐'
-        }
-      })
-    },
-    JumpPackageOfferTwo () {
-      let that = this
-      that.$router.push({
-        name: 'PackageOffer',
-        params: {
-          combo: '经济型套餐'
-        }
-      })
-    },
-    JumpPackageOfferThree () {
-      let that = this
-      that.$router.push({
-        name: 'PackageOffer',
-        params: {
-          combo: '经济型套餐'
-        }
-      })
-    },
-    JumpPackageOfferFour () {
-      let that = this
-      that.$router.push({
-        name: 'PackageOffer',
-        params: {
-          combo: '经济型套餐'
-        }
-      })
-    },
     informaRightBtn () {
       console.log('联系我们')
       // this.$http.jsonp('https://wpa.qq.com/msgrd?v=3&uin=1043814457&site=qq&menu=yes', {}, {
@@ -760,7 +723,7 @@ ul{
   width: 100%;
   height: 25rem;
   box-sizing: border-box;
-  background-image: url(../../../../assets/img/pro-allnet/show/pro-allnet-banner.png);
+  background-image: url('./../../../../assets/img/pro-allnet/show/pro-allnet-banner.png');
   background-size: cover;
   text-align: left;
   padding: 9.125rem 0  9.25rem 23rem;
@@ -975,7 +938,7 @@ ul{
 .oneFive .fiveCont{
   margin-top: 3.5rem;
   margin-bottom: 4.375rem;
-  text-align: left;
+  text-align: center
 }
 .oneFive .oneFiveLine{
   position: relative;
@@ -1062,7 +1025,7 @@ ul{
   display: inline-block;
   width: 10rem;
   height: 3.125rem;
-  line-height: 3.125rem;
+  /* line-height: 3.125rem; */
   box-sizing: border-box;
   background-color: #fff;
   color: #333;
@@ -1110,6 +1073,9 @@ ul{
   vertical-align:top;
   display: inline-block;
 }
+.two .priceOneRight:hover ul .table1{
+  border: .0625rem solid #02004b;
+}
 .borderChange{
   border-color: #02004b;
 }
@@ -1144,6 +1110,9 @@ ul{
   color: #ff0000;
   border: solid .0625rem #ff0000;
   opacity: 0.64;
+}
+.priceOneBtn a{
+  color: #ff0000;
 }
 /* 产品功能 功能模块 */
 .three{
@@ -1331,6 +1300,7 @@ ul{
   text-align: left;
   text-indent:2em;
   line-height: 1.5rem;
+  margin-top: 1.875rem;
 }
 .four .fourTwo{
   margin-top: 5.5rem;

@@ -1,5 +1,9 @@
 <template>
   <div class="PackageOffer">
+    <div class="banner">
+      <p>套餐报价</p>
+      <p>不要徘徊不定哦！这里就是你想知道的，赶快查询吧</p>
+    </div>
     <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-row>
         <el-col :span="5" :offset="5">
@@ -29,8 +33,7 @@
             <el-col :span="3" :offset="1">
               <img :src='imgSrc'
                    style="width:84px;height:40px;"
-                   @click=foucesClick
-                   >
+                   @click="foucesClick">
             </el-col>
           </el-row>
         </el-col>
@@ -38,7 +41,7 @@
       <el-row>
         <el-col :span="5" :offset="8">
           <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">点击咨询</el-button>
+            <el-button type="primary" @click="submitForm('ruleForm')" class="checkBtn">点击咨询</el-button>
           </el-form-item>
         </el-col>
       </el-row>
@@ -127,9 +130,8 @@ export default {
     },
     foucesClick () {
       let that = this
-      let num = Math.ceil(Math.random() * 10)
-      that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Price/Verification').then(function (res) {
-        that.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification' + '?' + num
+      that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Price/Verification', qs.stringify()).then(function (res) {
+        this.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification'
       })
     }
   },
@@ -137,12 +139,36 @@ export default {
     this.imgSrc = 'http://192.168.1.184/jiujiangdongzhu/Home/Price/Verification'
   }
 }
-
 </script>
 
-<style>
-.PackageOffer{
+<style scoped>
+.demo-ruleForm{
   margin-top:6.25rem;
   margin-bottom: 6.24rem;
+}
+.PackageOffer .banner{
+  width: 120rem;
+  height: 25rem;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 9.1875rem;
+  color: #fff;
+  background-image: url(../../../assets/img/pro-allnet/offerBanner.png);
+  background-repeat: no-repeat;
+}
+.PackageOffer .banner p:first-child{
+  font-size: 3.75rem;
+}
+.PackageOffer .banner p:last-child{
+  margin-top: 1.8125rem;
+  font-size: 1.025rem;
+}
+.demo-ruleForm .checkBtn{
+  margin-top: 6.25rem;
+  width: 11.625rem;
+  height: 3.5rem;
+  background-color: #02004b;
+  border-radius: .625rem;
+  border-color: transparent;
 }
 </style>

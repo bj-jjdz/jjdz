@@ -25,7 +25,11 @@
       <div class="backBannerTable">
           <template>
             <el-table :data="tableData" border style="width: 100%" max-height="488">
-              <el-table-column prop="img_path" label="缩略图" min-width="20%"><img class="tableImg" src="img_path" alt="" width="100px" height="100px"></el-table-column>
+              <el-table-column prop="img_path" label="缩略图" min-width="20%" align="center">
+                <template slot-scope="scope">
+                  <img :src="scope.row.img_path" width="100" height="100">
+                </template>
+              </el-table-column>
               <el-table-column prop="img_name" label="Banner名称" min-width="30%"></el-table-column>
               <el-table-column prop="description" label="Banner描述" min-width="40%"></el-table-column>
               <el-table-column fixed="right" label="操作" min-width="10%" prop="img_id">
@@ -60,7 +64,7 @@
               <el-form-item label="图片上传" label-width="150px">
                 <el-upload
                   class="avatar-uploader"
-                  action='http://192.168.1.197/jiujiangdongzhu/Lunbo/add_lunbo.html'
+                  action='http://39.97.175.16/jiujiangdongzhu/Lunbo/add_lunbo.html'
                   :show-file-list="false"
                   :before-upload="beforeAvatarUpload"
                   :on-success="handleAvatarSuccess"

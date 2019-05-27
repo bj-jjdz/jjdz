@@ -102,10 +102,10 @@
       <div class="programebg">
         <div class="programmeList">
           <ul>
-            <li>教育行业</li>
-            <li>制造行业</li>
-            <li>电商零售业</li>
-            <li>餐饮服务业</li>
+            <li><router-link to="/solutionCaseEducation" class="dd1">教育行业</router-link></li>
+            <li><router-link to="/solutionCase" class="dd1">制造行业</router-link></li>
+            <li><router-link to="/OnlineRetailers" class="dd1">电商零售业</router-link></li>
+            <li><router-link to="/RestaurantSolution" class="dd1">餐饮服务业</router-link></li>
           </ul>
         </div>
       </div>
@@ -415,9 +415,7 @@ export default {
     caseUpload () {
       let that = this
       that.$axios.post(this.httpUrlWMK + 'jiujiangdongzhu/Home/Carousel/CarouselList').then(function (res) {
-        console.log(res.data.data)
         that.banner = res.data.data
-        console.log(that.banner)
       })
     },
     handleSelect (key, keyPath) {
